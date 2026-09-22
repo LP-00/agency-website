@@ -1,0 +1,54 @@
+[
+  {
+    "width": 390,
+    "height": 844,
+    "overflow": {
+      "viewport": 390,
+      "document": 390,
+      "offenders": []
+    },
+    "errors": [],
+    "sections": [
+      {
+        "id": "inizio",
+        "height": 940
+      },
+      {
+        "id": "lavori",
+        "height": 2069
+      },
+      {
+        "id": "approccio",
+        "height": 1107
+      },
+      {
+        "id": "servizi",
+        "height": 1016
+      },
+      {
+        "id": "section case-study",
+        "height": 993
+      },
+      {
+        "id": "section process",
+        "height": 1159
+      },
+      {
+        "id": "prezzi",
+        "height": 1110
+      },
+      {
+        "id": "section payment",
+        "height": 851
+      },
+      {
+        "id": "faq",
+        "height": 925
+      },
+      {
+        "id": "preventivo",
+        "height": 739
+      }
+    ]
+  }
+]

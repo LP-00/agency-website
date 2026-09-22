@@ -23,8 +23,10 @@ export function QuoteButton({
       disabled={!ready}
       onClick={() => openQuote(intent, service)}
     >
-      {children}
-      {arrow && <Icon name="arrow" />}
+      <span className="button-label">{children}</span>
+      {(arrow || className.includes("button-light")) && (
+        <Icon name="arrow" className="button-arrow" />
+      )}
     </button>
   );
 }

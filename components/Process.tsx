@@ -1,3 +1,4 @@
+import { MotionSignature } from "./MotionSignature";
 import { SectionHeading } from "./SectionHeading";
 const steps = [
   ["Raccontaci cosa vuoi fare", "Compila il breve questionario."],
@@ -16,8 +17,9 @@ export function Process() {
           <SectionHeading eyebrow="Come funziona" id="process-heading">
             Dall’idea
             <br />
-            alla pubblicazione.
+            alla <strong>pubblicazione.</strong>
           </SectionHeading>
+          <MotionSignature variant="process" />
         </div>
         <ol className="process-list">
           {steps.map(([title, description], index) => (

@@ -1,6 +1,13 @@
 "use client";
 import { intents, type Intent } from "@/data/intents";
-import { Icon } from "./Icon";
+import { Icon, type IconName } from "./Icon";
+const intentIcons: Record<Intent, IconName> = {
+  site: "site",
+  redesign: "revision",
+  ecommerce: "shop",
+  booking: "calendar",
+  other: "plus",
+};
 export function IntentSelector({
   value,
   onChange,
@@ -33,9 +40,11 @@ export function IntentSelector({
               onChange={() => onChange(item.id)}
               required={variant === "form"}
             />
-            <span className="radio-mark" aria-hidden="true" />
+            <Icon name={intentIcons[item.id]} className="intent-glyph" />
+            <span className="radio-mark" aria-hidden="true">
+              <Icon name="check" />
+            </span>
             <span>{variant === "hero" ? item.label : item.longLabel}</span>
-            {variant === "hero" && item.id === "other" && <Icon name="arrow" />}
           </label>
         ))}
       </div>

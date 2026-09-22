@@ -1,4 +1,6 @@
 "use client";
+import { MotionSignature } from "./MotionSignature";
+import { RichText } from "./RichText";
 import Image from "next/image";
 import { asset } from "@/lib/assets";
 import { intents } from "@/data/intents";
@@ -32,19 +34,30 @@ export function Hero() {
           <div className="hero-copy" aria-live="polite" aria-atomic="true">
             <p className="eyebrow hero-eyebrow">Strategia. Design. Sviluppo.</p>
             <h1 id="hero-heading">
-              {copy.headline.map((line) => (
-                <span key={line}>{line}</span>
+              {copy.headline.map((line, index) => (
+                <span key={line}>
+                  {index === 1 ? (
+                    <strong>{line}</strong>
+                  ) : index === 2 ? (
+                    <em className="headline-accent">{line}</em>
+                  ) : (
+                    line
+                  )}
+                </span>
               ))}
             </h1>
-            <p className="hero-description">{copy.description}</p>
+            <p className="hero-description">
+              <RichText text={copy.description} />
+            </p>
           </div>
           <div className="hero-conversion">
             <IntentSelector value={intent} onChange={selectIntent} />
             <QuoteButton className="button-light button-full" />
             <p className="microcopy">
-              Nessun impegno. Ti ricontattiamo per capire il progetto.
+              <RichText text="Nessun impegno. Ti ricontattiamo per capire il progetto." />
             </p>
           </div>
+          <MotionSignature />
           <div className="hero-side-note" aria-hidden="true">
             Costruito intorno a te.<span>Design & sviluppo indipendente</span>
           </div>

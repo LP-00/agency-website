@@ -1,4 +1,6 @@
 "use client";
+import { DisclosurePanel } from "./DisclosurePanel";
+import { RichText } from "./RichText";
 import { useState } from "react";
 import { faq } from "@/data/faq";
 import { SectionHeading } from "./SectionHeading";
@@ -14,7 +16,7 @@ export function FAQ() {
             <br />
             alle domande
             <br />
-            più comuni.
+            <strong>più comuni.</strong>
           </SectionHeading>
         </div>
         <div className="faq-list">
@@ -32,14 +34,15 @@ export function FAQ() {
                   <Icon name="plus" />
                 </button>
               </h3>
-              <div
+              <DisclosurePanel
                 id={`faq-answer-${index}`}
-                role="region"
-                aria-labelledby={`faq-question-${index}`}
-                hidden={open !== index}
+                labelId={`faq-question-${index}`}
+                open={open === index}
               >
-                <p>{answer}</p>
-              </div>
+                <p>
+                  <RichText text={answer} />
+                </p>
+              </DisclosurePanel>
             </div>
           ))}
         </div>

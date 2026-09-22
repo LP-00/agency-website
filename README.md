@@ -1,7 +1,7 @@
 # /A — Agency website
 
 Landing editoriale mobile-first in italiano, basata su `design/reference-mobile.png`.
-**Versione 1.0.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
+**Versione 1.1.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
 
 ## Avvio
 
@@ -31,6 +31,7 @@ L’export statico è in `out/`. Il progetto usa `output: "export"`: per la buil
 - Dialog nativo: focus contenuto, Escape, ripristino del focus, blocco dello scroll e pagina sottostante non interagibile.
 - Accordion FAQ, servizi espandibili, menu mobile e navigazione fra due visual Florame.
 - CSS responsive dedicato, focus visibile e `prefers-reduced-motion`. Nessuna libreria UI o di animazione.
+- Enfasi tipografica senza modifiche alla copy, SVG originali animati, quattro icone 3D dedicate e controlli con feedback di pressione. Sistema documentato in `design/ICON-SYSTEM.md`.
 
 ## Funnel: demo frontend e invio reale
 
@@ -86,7 +87,7 @@ npm run qa:screenshots
 
 Le acquisizioni complete coprono 375 × 812, 390 × 844, 430 × 932, 768 × 1024, 1280 × 800 e 1440 × 900. Ogni acquisizione registra overflow, dimensioni delle sezioni ed errori browser. I test verificano intent, storage, interazioni, form e audit axe WCAG A/AA.
 
-Esito verificato anche online: **5 test passati**, nessun overflow alle sei risoluzioni e nessun errore TypeScript/lint/build. Lighthouse mobile sul sito pubblicato, prova isolata: **96 Performance / 100 Accessibilità / 100 Best Practices / 100 SEO**. Dettagli e limiti delle misurazioni in `qa/VISUAL-REVIEW.md`.
+I test includono anche il confronto integrale della copy con la versione approvata per i cinque intent, le preferenze di movimento e il caricamento delle icone 3D. Il report della revisione corrente è in `qa/V1.1-REVIEW.md`. La misurazione Lighthouse della precedente v1.0.0 era **96 Performance / 100 Accessibilità / 100 Best Practices / 100 SEO**; è un dato storico, non una misurazione della revisione corrente.
 
 ## Deploy
 

@@ -1,4 +1,5 @@
 "use client";
+import { RichText } from "./RichText";
 import { useState } from "react";
 import { SectionHeading } from "./SectionHeading";
 import { ProjectVisual } from "./ProjectVisual";
@@ -14,12 +15,10 @@ export function CaseStudy() {
             <br />
             Un progetto che
             <br />
-            fa la differenza.
+            <strong>fa la differenza.</strong>
           </SectionHeading>
           <p>
-            Abbiamo costruito una piattaforma digitale che connette fioristi,
-            clienti e tecnologia, con e-commerce, AI e gestione completa degli
-            ordini.
+            <RichText text="Abbiamo costruito una piattaforma digitale che connette fioristi, clienti e tecnologia, con e-commerce, AI e gestione completa degli ordini." />
           </p>
         </div>
         <div
@@ -28,6 +27,7 @@ export function CaseStudy() {
           aria-label="Viste del progetto Florame"
         >
           <ProjectVisual
+            key={slide}
             src={`/projects/florame-0${slide + 1}.webp`}
             name="Florame"
             number={`0${slide + 1}`}

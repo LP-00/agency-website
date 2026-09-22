@@ -1,3 +1,5 @@
+import { VERSION } from "@/lib/version";
+import { RichText } from "./RichText";
 import Image from "next/image";
 import { asset } from "@/lib/assets";
 import { QuoteButton } from "./QuoteButton";
@@ -20,11 +22,10 @@ export function FinalCTA() {
           <h2 id="final-heading">
             Hai un progetto
             <br />
-            in mente?
+            <em className="headline-accent">in mente?</em>
           </h2>
           <p>
-            Non serve un brief tecnico. Raccontaci cosa vuoi ottenere e partiamo
-            da lì.
+            <RichText text="Non serve un brief tecnico. Raccontaci cosa vuoi ottenere e partiamo da lì." />
           </p>
           <QuoteButton className="button-light" />
         </div>
@@ -46,7 +47,7 @@ export function FinalCTA() {
             <span>Design & sviluppo.</span>
             <small>
               © {new Date().getFullYear()}{" "}
-              <span className="version">v1.0.0</span>
+              <span className="version">v{VERSION}</span>
             </small>
           </div>
         </footer>

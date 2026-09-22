@@ -1,4 +1,5 @@
 "use client";
+import { VERSION } from "@/lib/version";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useAgency } from "./AgencyProvider";
 import { IntentSelector } from "./IntentSelector";
@@ -81,7 +82,7 @@ export default function QuoteFlow({
                 value.trim(),
               ]),
             ),
-            version: "1.0.0",
+            version: VERSION,
           }),
         });
         if (!response.ok) throw new Error("Request failed");
@@ -167,7 +168,7 @@ export default function QuoteFlow({
             ))}
           </ol>
           <form onSubmit={next} className="quote-form">
-            <div className="quote-fields">
+            <div className="quote-fields" key={step}>
               <h2 ref={titleRef} tabIndex={-1}>
                 {step === 1
                   ? "Cosa vuoi realizzare?"

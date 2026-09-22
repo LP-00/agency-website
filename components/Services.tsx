@@ -1,4 +1,6 @@
 "use client";
+import { ServiceObject } from "./ServiceObject";
+import { DisclosurePanel } from "./DisclosurePanel";
 import { useState } from "react";
 import { services } from "@/data/services";
 import { SectionHeading } from "./SectionHeading";
@@ -19,7 +21,7 @@ export function Services() {
         >
           Soluzioni pensate
           <br />
-          per il tuo business.
+          per il tuo <strong>business.</strong>
         </SectionHeading>
         <div className="service-list">
           {services.map((service, index) => (
@@ -33,15 +35,15 @@ export function Services() {
                 }
               >
                 <span className={`service-preview service-preview-${index}`}>
-                  <Icon name={service.symbol} />
+                  <ServiceObject name={service.symbol} />
                 </span>
                 <span className="service-name">{service.title}</span>
                 <span className="service-price">Da {service.price} €</span>
                 <Icon name="arrow" className="service-arrow" />
               </button>
-              <div
+              <DisclosurePanel
                 id={`service-${index}`}
-                hidden={expanded !== service.title}
+                open={expanded === service.title}
                 className="service-detail"
               >
                 <p>{service.description}</p>
@@ -53,7 +55,7 @@ export function Services() {
                 >
                   Parliamo del progetto
                 </QuoteButton>
-              </div>
+              </DisclosurePanel>
             </div>
           ))}
         </div>

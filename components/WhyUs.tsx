@@ -1,5 +1,7 @@
+import { BenefitGlyph } from "./BenefitGlyph";
+import { RichText } from "./RichText";
 import { SectionHeading } from "./SectionHeading";
-import { Icon, type IconName } from "./Icon";
+import { type IconName } from "./Icon";
 import { QuoteButton } from "./QuoteButton";
 const benefits: { title: string; description: string; icon: IconName }[] = [
   {
@@ -38,17 +40,19 @@ export function WhyUs() {
             <br />
             diverso,
             <br />
-            più giusto.
+            <strong className="editorial-underline">più giusto.</strong>
           </SectionHeading>
         </div>
         <div>
           <ul className="benefits">
             {benefits.map((item) => (
               <li key={item.title}>
-                <Icon name={item.icon} />
+                <BenefitGlyph name={item.icon} />
                 <div>
                   <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  <p>
+                    <RichText text={item.description} />
+                  </p>
                 </div>
               </li>
             ))}

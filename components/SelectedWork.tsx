@@ -1,3 +1,4 @@
+import { RichText } from "./RichText";
 import { projects } from "@/data/projects";
 import { SectionHeading } from "./SectionHeading";
 import { ProjectVisual } from "./ProjectVisual";
@@ -13,7 +14,7 @@ export function SelectedWork() {
         <SectionHeading eyebrow="Lavori selezionati" id="work-heading">
           Qualcosa lo abbiamo
           <br />
-          già costruito.
+          <strong>già costruito.</strong>
         </SectionHeading>
         <div className="project-list">
           {projects.map((project) => (
@@ -42,7 +43,7 @@ export function SelectedWork() {
                     <span className="sr-only"> (nuova scheda)</span>
                   </a>
                 </h3>
-                <p>{project.description}</p>
+                <p><RichText text={project.description} /></p>
                 <ul className="tags" aria-label="Caratteristiche">
                   {project.tags.map((tag) => (
                     <li key={tag}>{tag}</li>

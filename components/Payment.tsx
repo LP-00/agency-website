@@ -1,3 +1,4 @@
+import { RichText } from "./RichText";
 import { SectionHeading } from "./SectionHeading";
 export function Payment() {
   return (
@@ -7,11 +8,10 @@ export function Payment() {
           <SectionHeading eyebrow="Pagamenti" id="payment-heading">
             Flessibilità
             <br />
-            quando serve.
+            <em>quando serve.</em>
           </SectionHeading>
           <p className="payment-description">
-            Il saldo finale può essere concordato anche in forma dilazionata. La
-            consegna definitiva avviene una volta completato il pagamento.
+            <RichText text="Il saldo finale può essere concordato anche in forma dilazionata. La consegna definitiva avviene una volta completato il pagamento." />
           </p>
         </div>
         <ol className="payment-list">
@@ -21,7 +21,7 @@ export function Payment() {
             ["50%", "Saldo finale"],
           ].map(([value, label]) => (
             <li key={value}>
-              <span className="payment-value">{value}</span>
+              <strong className="payment-value">{value}</strong>
               <span>{label}</span>
             </li>
           ))}

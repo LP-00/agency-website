@@ -133,6 +133,14 @@ test("accessibility: page and every funnel step", async ({ page }) => {
     path: path.resolve("node_modules/axe-core/axe.min.js"),
   });
   async function audit() {
+    // Audit the resting UI, not an intermediate opacity frame during a transition.
+    await page.evaluate(async () => {
+      await Promise.all(
+        document
+          .getAnimations()
+          .map((animation) => animation.finished.catch(() => {})),
+      );
+    });
     const violations = await page.evaluate(async () => {
       const axe = (
         window as unknown as {
@@ -156,14 +164,21 @@ test("accessibility: page and every funnel step", async ({ page }) => {
     .getByRole("button", { name: "Preventivo", exact: true })
     .first()
     .click();
+  await expect(page.getByRole("dialog")).toBeVisible();
   await audit();
   await page.getByLabel("Un nuovo sito", { exact: true }).check();
   await page.getByRole("button", { name: "Continua", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Cosa vorresti ottenere?" }),
+  ).toBeVisible();
   await audit();
   await page
     .getByLabel("Descrivi il progetto")
     .fill("Un progetto da realizzare per il mio business.");
   await page.getByRole("button", { name: "Continua", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Dove possiamo ricontattarti?" }),
+  ).toBeVisible();
   await audit();
 });
 
@@ -206,9 +221,20 @@ test("every intent fits each requested viewport and storage is optional", async 
       ).toBeTruthy();
       const lines = await page.locator("h1>span").evaluateAll((spans) =>
         spans.map((span) => {
-          const range = document.createRange();
-          range.selectNodeContents(span);
-          return range.getClientRects().length;
+          // Measure text fragments, excluding the inline-block underline wrapper.
+          const walker = document.createTreeWalker(span, NodeFilter.SHOW_TEXT);
+          const baselines: number[] = [];
+          while (walker.nextNode()) {
+            const range = document.createRange();
+            range.selectNodeContents(walker.currentNode);
+            for (const rect of range.getClientRects()) {
+              if (
+                !baselines.some((bottom) => Math.abs(bottom - rect.bottom) < 4)
+              )
+                baselines.push(rect.bottom);
+            }
+          }
+          return baselines.length;
         }),
       );
       expect(lines, `${width}px ${intent}: unexpected heading wrap`).toEqual([

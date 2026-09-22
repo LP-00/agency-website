@@ -10,7 +10,7 @@ export function Pricing() {
     >
       <div className="container">
         <SectionHeading eyebrow="Pricing" id="pricing-heading">
-          Prezzi chiari,
+          <strong>Prezzi chiari,</strong>
           <br />
           senza sorprese.
         </SectionHeading>
@@ -25,8 +25,12 @@ export function Pricing() {
                   ? "Gestionale / Prenotazioni"
                   : service.title}
               </h3>
-              <p className="price-value">Da {service.price} €</p>
-              <p className="price-timing">{service.timing}</p>
+              <p className="price-value">
+                Da <strong>{service.price} €</strong>
+              </p>
+              <p className="price-timing">
+                <em>{service.timing}</em>
+              </p>
               <QuoteButton
                 className="price-card-link"
                 arrow

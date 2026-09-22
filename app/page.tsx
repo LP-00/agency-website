@@ -1,3 +1,4 @@
+import { MotionDirector } from "@/components/MotionDirector";
 import { AgencyProvider } from "@/components/AgencyProvider";
 import { Hero } from "@/components/Hero";
 import { SelectedWork } from "@/components/SelectedWork";
@@ -24,6 +25,7 @@ export default function Home() {
         <FAQ />
         <FinalCTA />
       </main>
+      <MotionDirector />
     </AgencyProvider>
   );
 }
