@@ -4,7 +4,7 @@ import path from "node:path";
 test("query intent, persistence, invalid query and radio keyboard navigation", async ({
   page,
 }) => {
-  await page.goto("/?intent=ecommerce");
+  await page.goto("./?intent=ecommerce");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "Il tuo negozio.",
   );
@@ -12,7 +12,7 @@ test("query intent, persistence, invalid query and radio keyboard navigation", a
   await expect(page.getByRole("dialog")).toHaveCount(0);
   await page.reload();
   await expect(page.locator('input[value="ecommerce"]')).toBeChecked();
-  await page.goto("/?intent=invalid");
+  await page.goto("./?intent=invalid");
   await expect(page.locator('input[value="ecommerce"]')).toBeChecked();
   await page.locator('input[value="ecommerce"]').focus();
   await page.keyboard.press("ArrowRight");
@@ -30,7 +30,7 @@ test("query intent, persistence, invalid query and radio keyboard navigation", a
 test("full quote flow, validation, back navigation, focus containment and demo success", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("./");
   const opener = page
     .getByRole("button", { name: "Preventivo", exact: true })
     .first();
@@ -91,7 +91,7 @@ test("full quote flow, validation, back navigation, focus containment and demo s
 test("menu, service disclosures, FAQ, carousel and price selection", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("./");
   await page.getByRole("button", { name: "Apri menu" }).click();
   await page
     .getByRole("navigation", { name: "Menu", exact: true })
@@ -128,7 +128,7 @@ test("menu, service disclosures, FAQ, carousel and price selection", async ({
 });
 
 test("accessibility: page and every funnel step", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("./");
   await page.addScriptTag({
     path: path.resolve("node_modules/axe-core/axe.min.js"),
   });
@@ -178,7 +178,7 @@ test("every intent fits each requested viewport and storage is optional", async 
       throw new Error("Storage unavailable");
     };
   });
-  await page.goto("/?intent=site");
+  await page.goto("./?intent=site");
   await expect(
     page.getByRole("button", { name: "Preventivo", exact: true }).first(),
   ).toBeEnabled();

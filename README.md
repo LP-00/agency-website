@@ -86,6 +86,8 @@ npm run qa:screenshots
 
 Le acquisizioni complete coprono 375 × 812, 390 × 844, 430 × 932, 768 × 1024, 1280 × 800 e 1440 × 900. Ogni acquisizione registra overflow, dimensioni delle sezioni ed errori browser. I test verificano intent, storage, interazioni, form e audit axe WCAG A/AA.
 
+Esito verificato anche online: **5 test passati**, nessun overflow alle sei risoluzioni e nessun errore TypeScript/lint/build. Lighthouse mobile sul sito pubblicato, prova isolata: **96 Performance / 100 Accessibilità / 100 Best Practices / 100 SEO**. Dettagli e limiti delle misurazioni in `qa/VISUAL-REVIEW.md`.
+
 ## Deploy
 
 GitHub Pages pubblica l’export dal branch `codex/pages`. Lo script seguente verifica lint e TypeScript, esegue la build con il base path corretto e pubblica solo `out/`, senza cambiare branch o modificare i sorgenti:
@@ -94,7 +96,7 @@ GitHub Pages pubblica l’export dal branch `codex/pages`. Lo script seguente ve
 npm run deploy
 ```
 
-Richiede Git e GitHub CLI (`gh`) autenticata con accesso alla repository. Committare e pubblicare prima i sorgenti su `main`, poi eseguire il deploy. La pubblicazione Pages prosegue in GitHub: verificarne il completamento con `gh run list`.
+Richiede Git e GitHub CLI (`gh`) autenticata con accesso alla repository. Committare e pubblicare prima i sorgenti su `main`, poi eseguire il deploy. La pubblicazione Pages prosegue in GitHub: verificarne il completamento con `gh api repos/LP-00/agency-website/pages/builds/latest --jq .status`.
 
 L’accesso disponibile durante l’implementazione non comprendeva il permesso OAuth `workflow`, quindi è stato usato il deploy da branch. Per attivare in seguito il deploy automatico a ogni push, il template completo è in `deployment/github-pages.workflow.yml`: copiarlo in `.github/workflows/deploy.yml` usando un accesso autorizzato e impostare Pages su GitHub Actions.
 

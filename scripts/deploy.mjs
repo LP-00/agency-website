@@ -32,5 +32,6 @@ run("git", [...gitAuth, "push", "origin", `${commit}:refs/heads/${branch}`], { s
 const settings = resolve(".git/agency-pages-settings.json");
 writeFileSync(settings, JSON.stringify({ build_type: "legacy", source: { branch, path: "/" } }));
 run("gh", ["api", "--method", "PUT", `repos/${repository}/pages`, "--input", settings], { stdio: "ignore" });
+run("gh", ["api", "--method", "POST", `repos/${repository}/pages/builds`], { stdio: "ignore" });
 console.log(`Export published to ${branch}. GitHub Pages is processing the deployment: ${origin}`);
-console.log("Check completion with: gh run list --limit 3");
+console.log(`Check completion with: gh api repos/${repository}/pages/builds/latest --jq .status`);

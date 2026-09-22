@@ -57,3 +57,25 @@ The final screenshot set uses the production export, not the development server.
 - The atmospheric workspace is generated imagery, not a photograph of the real agency.
 - The quote funnel is a frontend demo until an endpoint is configured. The success screen explicitly says no request was sent.
 - Browser testing was performed in Chromium, including the six requested viewport sizes. This is not a claim of physical-device testing or a full manual accessibility certification.
+
+## Published verification — 22 September 2026
+
+Live URL: https://lp-00.github.io/agency-website/
+
+All five Playwright tests also pass against the published site, including base-path asset loading, advertising query parameters, mobile navigation and the frontend quote flow.
+
+Lighthouse 13.5.0, mobile profile, public HTTPS URL, isolated run:
+
+| Metric | Result |
+| --- | ---: |
+| Performance | 96 |
+| Accessibility | 100 |
+| Best Practices | 100 |
+| SEO | 100 |
+| LCP | 2.4 s |
+| Total blocking time | 160 ms |
+| Cumulative layout shift | 0 |
+
+These are laboratory measurements, not guarantees for every device or network. A preceding run concurrent with browser tests scored 84 for performance; the final run was isolated from other task tests. The uncompressed local Python server scored 69 and is not representative of the published delivery configuration. Lighthouse wrote complete valid reports (no report runtime error); its Windows launcher then reported a temporary-profile cleanup EPERM, which did not affect the saved measurements.
+
+GitHub deployment uses `codex/pages` because the available OAuth access lacks the `workflow` scope. The source is committed to `main`. `npm run deploy` reproduces validation, build, export publication and the Pages build request.
