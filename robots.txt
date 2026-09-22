@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://lp-00.github.io/agency-website/sitemap.xml
