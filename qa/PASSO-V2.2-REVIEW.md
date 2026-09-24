@@ -15,3 +15,5 @@ Verifica visiva: screenshot di 375×812, 390×844, 430×932, 768×1024, 1280×80
 La suite funzionale ha coperto 14 test. Un primo controllo axe ha rilevato contrasto insufficiente nel wordmark decorativo; dopo la correzione il test WCAG A/AA della pagina e dei tre step del funnel è passato. Il test temporizzato conferma avanzamento, pausa manuale e ripartenza dopo 10 secondi. Verificato l'avanzamento autonomo su desktop anche per servizi e prezzi. Build TypeScript e lint passati.
 
 Il form mantiene la modalità demo frontend finché non viene configurato un endpoint reale.
+
+Deploy GitHub Pages completato: release `2.2.0`, commit sorgente `0cf5b114ded6587a848d33445d35bca689aaceae`, commit pubblicato `2efdad5cca754f34e80c20fa43793b306c8cfa24`. Verifica sulla pagina pubblica a 390 e 1440 px: intent gestionale, nuovo visual, copy, sette servizi, sei prezzi, assenza della sezione Focus, immagini caricate, nessun overflow e nessun errore browser. Risultati dettagliati in `qa/v22-release/live-verification.json`.

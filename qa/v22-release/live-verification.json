@@ -1,0 +1,40 @@
+{
+  "manifest": {
+    "version": "2.2.0",
+    "sourceCommit": "0cf5b114ded6587a848d33445d35bca689aaceae",
+    "builtAt": "2026-09-24T16:14:10.759Z"
+  },
+  "results": [
+    {
+      "viewport": 390,
+      "document": 390,
+      "heroIntent": "booking",
+      "heroCaption": "Il lavoro in ordine. Il tempo restituito.",
+      "heroVisual": "/agency-website/passo/software-v4.webp",
+      "projectsEyebrow": "I nostri progetti",
+      "firstProject": "florame.ai (nuova scheda)",
+      "services": 7,
+      "pricing": 6,
+      "focusSections": 0,
+      "projectGalleryControls": 0,
+      "missingImages": [],
+      "errors": []
+    },
+    {
+      "viewport": 1440,
+      "document": 1440,
+      "heroIntent": "booking",
+      "heroCaption": "Il lavoro in ordine. Il tempo restituito.",
+      "heroVisual": "/agency-website/passo/software-v4.webp",
+      "projectsEyebrow": "I nostri progetti",
+      "firstProject": "florame.ai (nuova scheda)",
+      "services": 7,
+      "pricing": 6,
+      "focusSections": 0,
+      "projectGalleryControls": 0,
+      "missingImages": [],
+      "errors": []
+    }
+  ],
+  "checkedAt": "2026-09-24T16:17:01.134Z"
+}
