@@ -1,5 +1,49 @@
 import { test, expect } from "@playwright/test";
 
+test("mobile hero fits the first viewport for every service intent", async ({
+  page,
+}) => {
+  test.setTimeout(90000);
+  for (const [width, height] of [
+    [375, 812],
+    [390, 844],
+    [430, 932],
+  ]) {
+    await page.setViewportSize({ width, height });
+    for (const intent of [
+      "site",
+      "ecommerce",
+      "booking",
+      "ai-app",
+      "iot",
+      "other",
+    ]) {
+      await page.goto(`./?intent=${intent}`);
+      await expect(page.locator(".hero")).toHaveAttribute("data-intent", intent);
+      const layout = await page.evaluate(() => {
+        const hero = document.querySelector(".hero")!.getBoundingClientRect();
+        const title = document.querySelector(".hero-copy h1")!.getBoundingClientRect();
+        const visual = document.querySelector(".hero-art")!.getBoundingClientRect();
+        return {
+          heroBottom: hero.bottom,
+          titleTop: title.top,
+          titleBottom: title.bottom,
+          visualCenter: visual.top + visual.height / 2,
+          documentWidth: document.documentElement.scrollWidth,
+        };
+      });
+      expect(layout.heroBottom, `${width}px ${intent}`).toBeLessThanOrEqual(height);
+      expect(layout.documentWidth, `${width}px ${intent}`).toBe(width);
+      expect(layout.visualCenter, `${width}px ${intent}`).toBeGreaterThan(
+        layout.titleTop,
+      );
+      expect(layout.visualCenter, `${width}px ${intent}`).toBeLessThan(
+        layout.titleBottom,
+      );
+    }
+  }
+});
+
 test("project starter validates and carries service and brief into the contact step", async ({
   page,
 }) => {

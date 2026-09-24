@@ -1,0 +1,58 @@
+[
+  {
+    "width": 375,
+    "height": 812,
+    "intent": "ecommerce",
+    "heroBottom": 793,
+    "documentWidth": 375,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "intent": "site",
+    "heroBottom": 755,
+    "documentWidth": 390,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "intent": "iot",
+    "heroBottom": 735,
+    "documentWidth": 390,
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "intent": "booking",
+    "heroBottom": 747,
+    "documentWidth": 430,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "intent": "site",
+    "heroBottom": 888,
+    "documentWidth": 768,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "intent": "site",
+    "heroBottom": 917,
+    "documentWidth": 1280,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "intent": "site",
+    "heroBottom": 946,
+    "documentWidth": 1440,
+    "errors": []
+  }
+]

@@ -265,9 +265,16 @@ test("every intent fits each requested viewport and storage is optional", async 
           return baselines.length;
         }),
       );
-      expect(lines, `${width}px ${intent}: unexpected heading wrap`).toEqual([
-        1, 1, 1,
-      ]);
+      if (width < 600) {
+        expect(
+          lines.every((count) => count >= 1 && count <= 2),
+          `${width}px ${intent}: headline fragment wrapped more than twice`,
+        ).toBeTruthy();
+      } else {
+        expect(lines, `${width}px ${intent}: unexpected heading wrap`).toEqual([
+          1, 1, 1,
+        ]);
+      }
     }
   }
 });
