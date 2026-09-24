@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import dynamic from "next/dynamic";
-import { isIntent, type Intent } from "@/data/intents";
+import { parseIntent, type Intent } from "@/data/intents";
 const QuoteFlow = dynamic(() => import("./QuoteFlow"), { ssr: false });
 type AgencyContext = {
   ready: boolean;
@@ -37,7 +37,7 @@ export function AgencyProvider({ children }: { children: React.ReactNode }) {
       } catch {
         /* Storage is optional. */
       }
-      const value = isIntent(query) ? query : isIntent(saved) ? saved : null;
+      const value = parseIntent(query) ?? parseIntent(saved);
       setIntent(value);
       setReady(true);
       if (value) {

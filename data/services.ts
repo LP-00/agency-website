@@ -21,7 +21,7 @@ export const services: Service[] = [
     timing: "Circa 2 settimane",
     intent: "site",
     symbol: "site",
-    image: "landing",
+    image: "landing-v3",
     description:
       "Una presenza essenziale, progettata per presentarti bene e trasformare l’interesse in un primo contatto.",
     examples: [
@@ -39,7 +39,7 @@ export const services: Service[] = [
     timing: "Circa 4–6 settimane",
     intent: "site",
     symbol: "pages",
-    image: "website",
+    image: "website-v3",
     description:
       "Contenuti, servizi e identità organizzati in un sito completo, facile da esplorare e da aggiornare.",
     examples: [
@@ -75,7 +75,7 @@ export const services: Service[] = [
     timing: "Tempistiche su progetto",
     intent: "booking",
     symbol: "calendar",
-    image: "software",
+    image: "software-v3",
     description:
       "Meno passaggi manuali, più controllo. Strumenti costruiti intorno alle persone e al modo in cui lavori.",
     examples: [
@@ -91,7 +91,7 @@ export const services: Service[] = [
     shortTitle: "Web app AI",
     price: "10.000",
     timing: "Tempistiche su progetto",
-    intent: "other",
+    intent: "ai-app",
     symbol: "pages",
     image: "ai-app",
     description:
@@ -109,7 +109,7 @@ export const services: Service[] = [
     shortTitle: "Sistemi IoT + AI",
     price: "10.000",
     timing: "Tempistiche su progetto",
-    intent: "other",
+    intent: "iot",
     symbol: "site",
     image: "iot",
     description:

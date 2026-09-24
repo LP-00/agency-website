@@ -26,15 +26,7 @@ export function CallUs() {
           </span>
         </div>
         <div className="call-sculpture" aria-hidden="true">
-          <ServiceArt name="call" />
-          <svg className="call-waves" viewBox="0 0 100 100" fill="none">
-            <path
-              d="M22 53a35 35 0 0 1 40-35M30 54a27 27 0 0 1 31-28M39 55a19 19 0 0 1 21-20"
-              stroke="currentColor"
-              strokeWidth="1.4"
-              strokeLinecap="round"
-            />
-          </svg>
+          <ServiceArt name="call-v3" />
           <span className="call-art-caption">
             Le idee migliori iniziano così.
           </span>

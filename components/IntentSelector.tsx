@@ -3,7 +3,8 @@ import { intents, type Intent } from "@/data/intents";
 import { Icon, type IconName } from "./Icon";
 const intentIcons: Record<Intent, IconName> = {
   site: "site",
-  redesign: "revision",
+  "ai-app": "chip",
+  iot: "sensor",
   ecommerce: "shop",
   booking: "calendar",
   other: "plus",

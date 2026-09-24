@@ -20,18 +20,19 @@ test("production hydration and interactions emit no browser errors", async ({
   expect(errors).toEqual([]);
 });
 
-test("visual emphasis preserves the approved copy for all five intents", async ({
+test("visual emphasis preserves the approved copy for all six intents", async ({
   page,
 }) => {
   for (const [intent, expected] of Object.entries({
-    site: "Siti webche lavoranoper te.",
-    redesign: "Il tuo sito.Un nuovoinizio.",
+    site: "Il tuo sito.Un nuovoinizio.",
+    "ai-app": "La tua app.L’AI, al tuoservizio.",
+    iot: "Dispositivi.Connessi eintelligenti.",
     ecommerce: "Il tuo negozio.Ancheonline.",
     booking: "Meno passaggi.Più tempoper te.",
     other: "La tua idea.Il prossimopasso.",
   })) {
     await page.goto(`./?intent=${intent}`);
-    await expect(page.locator(`input[value="${intent}"]`)).toBeChecked();
+    await expect(page.locator(`.hero input[value="${intent}"]`)).toBeChecked();
     const actual = (await page.locator("h1").textContent())!
       .replace(/\s+/g, "")
       .replace(/v\d+\.\d+\.\d+/g, "vVERSION");

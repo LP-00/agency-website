@@ -52,19 +52,7 @@ export function Hero() {
           </div>
           <div className="hero-art" aria-hidden="true">
             <span className="hero-art-orbit" />
-            <ServiceArt
-              key={intent || "site"}
-              name={
-                {
-                  site: "landing",
-                  redesign: "website",
-                  ecommerce: "commerce",
-                  booking: "software",
-                  other: "ai-app",
-                }[intent || "site"]
-              }
-              eager
-            />
+            <ServiceArt key={intent || "site"} name={copy.visual} eager />
             <span className="hero-art-caption">
               Idee concrete. Nuove possibilità.
             </span>

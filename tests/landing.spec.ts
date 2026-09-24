@@ -44,7 +44,7 @@ test("full quote flow, validation, back navigation, focus containment and demo s
   await expect(
     page.getByRole("heading", { name: "Cosa vuoi realizzare?" }),
   ).toBeVisible();
-  await page.getByLabel("Rifare il mio sito", { exact: true }).check();
+  await page.getByLabel("Un sito", { exact: true }).check();
   await page
     .getByRole("dialog")
     .getByRole("button", { name: "Continua", exact: true })
@@ -123,11 +123,15 @@ test("menu, service disclosures, FAQ, carousel and price selection", async ({
     .click();
   await expect(page.locator("#faq-answer-0")).toBeHidden();
   await expect(page.locator("#faq-answer-1")).toBeVisible();
-  await page.getByRole("button", { name: "Immagine precedente" }).click();
-  await expect(page.locator(".focus-visual img")).toHaveAttribute(
-    "src",
-    /florame-01/,
-  );
+  const gallery = page.getByRole("region", {
+    name: "Viste del progetto Florame",
+  });
+  await gallery.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect
+    .poll(() => gallery.evaluate((el) => el.scrollLeft))
+    .toBeGreaterThan(100);
+  await expect(gallery.locator('img[src*="florame-fiorista"]')).toHaveCount(1);
   await page
     .getByRole("button", {
       name: "Richiedi un preventivo per E-commerce",
@@ -183,7 +187,7 @@ test("accessibility: page and every funnel step", async ({ page }) => {
     .click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await audit();
-  await page.getByLabel("Un nuovo sito", { exact: true }).check();
+  await page.getByLabel("Un sito", { exact: true }).check();
   await page
     .getByRole("dialog")
     .getByRole("button", { name: "Continua", exact: true })
@@ -231,12 +235,13 @@ test("every intent fits each requested viewport and storage is optional", async 
     await page.setViewportSize({ width, height });
     for (const intent of [
       "site",
-      "redesign",
+      "ai-app",
+      "iot",
       "ecommerce",
       "booking",
       "other",
     ]) {
-      await page.locator(`input[value="${intent}"]`).check();
+      await page.locator(`.hero input[value="${intent}"]`).check();
       expect(
         await page.evaluate(
           () => document.documentElement.scrollWidth <= window.innerWidth,

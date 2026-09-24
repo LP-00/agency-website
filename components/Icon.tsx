@@ -13,8 +13,22 @@ export type IconName =
   | "site"
   | "pages"
   | "shop"
+  | "chip"
+  | "sensor"
   | "calendar";
 const paths: Record<IconName, React.ReactNode> = {
+  chip: (
+    <>
+      <rect x="6" y="6" width="12" height="12" rx="2" />
+      <path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4M10 10h4v4h-4z" />
+    </>
+  ),
+  sensor: (
+    <>
+      <circle cx="12" cy="15" r="2" />
+      <path d="M12 17v5M5 8a10 10 0 0 1 14 0M8 11a6 6 0 0 1 8 0M2 5a14 14 0 0 1 20 0" />
+    </>
+  ),
   arrow: <path d="M4 12h16m-6-6 6 6-6 6" />,
   external: <path d="M6 18 18 6M6 6h12v12" />,
   close: <path d="m6 6 12 12M6 18 18 6" />,

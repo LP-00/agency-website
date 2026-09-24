@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { asset } from "@/lib/assets";
 import { RichText } from "./RichText";
 import { projects } from "@/data/projects";
 import { SectionHeading } from "./SectionHeading";
@@ -14,14 +16,23 @@ export function SelectedWork() {
     >
       <div className="container">
         <SectionHeading eyebrow="Lavori selezionati" id="work-heading">
-          <WordReveal text="Qualcosa lo abbiamo" />
+          <WordReveal text="Cosa abbiamo già" />
           <br />
-          <strong>già costruito.</strong>
+          <strong>costruito quest’anno.</strong>
         </SectionHeading>
         <div className="project-list">
           {projects.map((project) => (
             <article className="project" key={project.name}>
               <div className="project-copy">
+                <Image
+                  className="project-watermark"
+                  src={asset(project.logo)}
+                  alt=""
+                  aria-hidden="true"
+                  width={240}
+                  height={160}
+                  unoptimized
+                />
                 <span className="project-index" aria-hidden="true">
                   /{project.number}
                 </span>
@@ -45,24 +56,21 @@ export function SelectedWork() {
                 label={`Galleria ${project.name}`}
                 className="project-gallery"
                 autoplay
+                controls={false}
               >
-                {project.images.map((src, i) => (
+                {project.images.map((image) => (
                   <a
                     className="project-slide"
-                    key={src}
-                    href={
-                      i === 1 && "secondaryUrl" in project
-                        ? project.secondaryUrl
-                        : project.url
-                    }
+                    key={image.src}
+                    href={image.url}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label={`${project.name}, vista ${i + 1}. Visita il progetto (nuova scheda)`}
+                    aria-label={`${project.name}, ${image.label}. Visita il progetto (nuova scheda)`}
                   >
                     <ProjectVisual
-                      src={src}
+                      src={image.src}
                       name={project.name}
-                      number={`0${i + 1}`}
+                      label={image.label}
                     />
                   </a>
                 ))}

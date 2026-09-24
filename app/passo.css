@@ -1802,3 +1802,111 @@
     object-position: 60% center;
   }
 }
+/* PASSO 2.1: six intents, quiet portfolio marks, and a legible process story. */
+.passo-hero .intent-option:last-child,
+.passo-hero .intent-option:nth-child(4) {
+  grid-column: auto;
+}
+.passo-work .project-copy {
+  isolation: isolate;
+}
+.passo-work .project-watermark {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: clamp(100px, 22vw, 180px);
+  height: 80%;
+  max-height: 150px;
+  object-fit: contain;
+  transform: translateY(-50%) rotate(-12deg);
+  opacity: 0.12;
+  filter: grayscale(1);
+  pointer-events: none;
+  z-index: -1;
+}
+.focus-gallery .focus-visual {
+  margin: 0;
+}
+.focus-gallery .project-visual {
+  height: auto;
+}
+.process-story.signature-process {
+  max-width: 420px;
+  margin: 0 0 38px;
+  color: #55564e;
+}
+.process-story .story-idea,
+.process-story .story-sketch,
+.process-story .story-ready {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.process-story.is-revealed .story-idea {
+  animation: story-arrive 600ms ease-out both;
+}
+.process-story.is-revealed .story-sketch {
+  animation: story-arrive 600ms 600ms ease-out both;
+}
+.process-story.is-revealed .story-ready {
+  animation: story-arrive 600ms 1600ms ease-out both;
+}
+.process-story.is-revealed .bulb-rays {
+  animation: idea-light 1000ms ease-out both;
+}
+.process-story.is-revealed .sketch-lines path {
+  stroke-dasharray: 1;
+  animation: route-draw 1000ms 900ms ease-out both;
+}
+.process-story.is-revealed .ready-check {
+  stroke-dasharray: 1;
+  animation: route-draw 500ms 2200ms ease-out both;
+}
+@keyframes story-arrive {
+  from {
+    opacity: 0.15;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes idea-light {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-story *,
+  .process-story.is-revealed * {
+    animation: none !important;
+    stroke-dashoffset: 0;
+  }
+}
+.passo-work .project-list {
+  grid-template-columns: minmax(0, 1fr);
+}
+.passo-work .project {
+  min-width: 0;
+}
+.call-sculpture {
+  padding-bottom: 30px;
+}
+.call-sculpture .call-art-caption {
+  bottom: 0;
+}
+.project-gallery .rail-track {
+  cursor: grab;
+}
+.rail-track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  user-select: none;
+}
+.rail-track.is-dragging a {
+  cursor: grabbing;
+}

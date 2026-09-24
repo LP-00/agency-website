@@ -7,6 +7,8 @@ for (const source of [
   "projects/1719-02",
   "projects/real/florame-01",
   "projects/real/florame-02",
+  "projects/real/florame-hub",
+  "projects/real/florame-fiorista",
   "projects/real/1719-01",
   "projects/real/1719-02",
   "passo/hero",

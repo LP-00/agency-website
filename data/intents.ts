@@ -1,22 +1,16 @@
 export const intents = [
   {
     id: "site",
-    label: "Nuovo sito",
-    longLabel: "Un nuovo sito",
-    headline: ["Siti web", "che lavorano", "per te."],
-    description:
-      "Strategia, design e sviluppo per attività e aziende che vogliono crescere online.",
-  },
-  {
-    id: "redesign",
-    label: "Rifare il sito",
-    longLabel: "Rifare il mio sito",
+    label: "Sito",
+    longLabel: "Un sito",
+    visual: "website-v3",
     headline: ["Il tuo sito.", "Un nuovo", "inizio."],
     description:
       "Ripensiamo design, contenuti e funzionalità per dare al tuo business il sito che merita.",
   },
   {
     id: "ecommerce",
+    visual: "commerce",
     label: "E-commerce",
     longLabel: "Un e-commerce",
     headline: ["Il tuo negozio.", "Anche", "online."],
@@ -25,14 +19,34 @@ export const intents = [
   },
   {
     id: "booking",
-    label: "Prenotazioni",
-    longLabel: "Prenotazioni / gestionale",
+    label: "Gestionale",
+    longLabel: "Software gestionale e prenotazioni",
+    visual: "software-v3",
     headline: ["Meno passaggi.", "Più tempo", "per te."],
     description:
       "Prenotazioni e strumenti di gestione costruiti intorno al modo in cui lavori.",
   },
   {
+    id: "ai-app",
+    label: "Web app AI",
+    longLabel: "Web app con AI avanzata",
+    visual: "ai-app",
+    headline: ["La tua app.", "L’AI, al tuo", "servizio."],
+    description:
+      "Web app su misura con AI avanzata, per semplificare processi e dare forma a nuovi servizi.",
+  },
+  {
+    id: "iot",
+    label: "IoT + AI",
+    longLabel: "Sistemi IoT con AI avanzata",
+    visual: "iot",
+    headline: ["Dispositivi.", "Connessi e", "intelligenti."],
+    description:
+      "Sensori, dispositivi e AI per monitorare scorte, riconoscere ciò che conta e automatizzare il lavoro.",
+  },
+  {
     id: "other",
+    visual: "ai-app",
     label: "Altro",
     longLabel: "Altro",
     headline: ["La tua idea.", "Il prossimo", "passo."],
@@ -43,3 +57,6 @@ export const intents = [
 export type Intent = (typeof intents)[number]["id"];
 export const isIntent = (value: unknown): value is Intent =>
   intents.some((intent) => intent.id === value);
+// Preserve links and preferences saved before the site/redesign consolidation.
+export const parseIntent = (value: unknown): Intent | null =>
+  value === "redesign" ? "site" : isIntent(value) ? value : null;

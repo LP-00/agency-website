@@ -1,0 +1,72 @@
+{
+  "method": "Built-in imagegen; alpha WebP resized with Sharp",
+  "prompts": [
+    [
+      "landing-v3",
+      "Premium sculptural 3D editorial asset for Italian digital studio PASSO. Warm ivory ceramic and matte graphite, minimal brushed-metal details, exceptionally clean industrial design, soft studio light, photoreal tactile material, genuinely TRANSPARENT BACKGROUND WITH ALPHA. Square, single centered coherent object composition entirely visible, 10 percent breathing room. Readable at 280px. No text, letters, numbers, statistics, logos, spheres, loose arcs or decorative wires. Black and warm cream only. A website for a local business, represented as one elegant upright browser frame containing a recognisable miniature storefront with a striped awning and shop door in its main photo area, with a clean pill-shaped contact button and a small envelope symbol below. A graphite mouse pointer touches the contact button. Clearly communicate a business presentation landing page that creates contact requests. No charts, no stairs, no dashboard, no generic stacked blank rectangles."
+    ],
+    [
+      "website-v3",
+      "Premium sculptural 3D editorial asset for Italian digital studio PASSO. Warm ivory ceramic and matte graphite, minimal brushed-metal details, exceptionally clean industrial design, soft studio light, photoreal tactile material, genuinely TRANSPARENT BACKGROUND WITH ALPHA. Square, single centered coherent object composition entirely visible, 10 percent breathing room. Readable at 280px. No text, letters, numbers, statistics, logos, spheres, loose arcs or decorative wires. Black and warm cream only. A recognisable slim desktop computer with pedestal stand displaying a beautiful business website: a large photographic-style architectural building image, a top navigation row of four small tabs and a clear three-column image-content layout below. A smaller upright smartphone alongside repeats that exact architectural hero content in a tall mobile layout. Two devices only. Communicate a complete responsive multi-page website. No keyboard, no shop awning, no charts, no floating blank panels."
+    ],
+    [
+      "call-v3",
+      "Premium sculptural 3D editorial asset for Italian digital studio PASSO. Warm ivory ceramic and matte graphite, minimal brushed-metal details, exceptionally clean industrial design, soft studio light, photoreal tactile material, genuinely TRANSPARENT BACKGROUND WITH ALPHA. Square, single centered coherent object composition entirely visible, 10 percent breathing room. Readable at 280px. No text, letters, numbers, statistics, logos, spheres, loose arcs or decorative wires. Black and warm cream only. A complete beautiful vintage rotary dial telephone. Substantial ivory base, precise circular graphite rotary finger dial with ten holes, two intact cradle supports on top. An elegant ivory handset with graphite handle FLOATS horizontally slightly tilted above the cradle as if just picked up. A single SHORT neatly coiled dark telephone cord connects handset and side of base with visibly continuous endpoints. No loose broken curves, no sound waves, no decorative arcs. Full phone base and raised receiver, appealing premium industrial design, clear recognisable silhouette."
+    ],
+    [
+      "software-v3",
+      "Premium sculptural 3D editorial asset for Italian digital studio PASSO. Warm ivory ceramic and matte graphite, minimal brushed-metal details, exceptionally clean industrial design, soft studio light, photoreal tactile material, genuinely TRANSPARENT BACKGROUND WITH ALPHA. Square, single centered coherent object composition entirely visible, 10 percent breathing room. Readable at 280px. No text, letters, numbers, statistics, logos, spheres, loose arcs or decorative wires. Black and warm cream only. Improve the referenced icon into a polished business management software sculpture, keeping its ivory upright browser window, graphite arrow pointer and three solid rising blocks. Replace generic picture placeholder with a clear organised operational interface: slim sidebar with three navigation symbols, two task rows with checkmarks and a compact calendar grid. Pointer interacts with one task row. Three rising graphite blocks small in lower left foreground, subtle not dominant. No text or invented numbers. One coherent clean composition with precise aligned interface, clear operational planning meaning."
+    ]
+  ],
+  "assets": [
+    {
+      "file": "public/passo/landing-v3.webp",
+      "source": "C:/Users/leona/.codex/generated_images/01a0c662-89fa-74a3-83ad-4db32d795a5b/exec-70198b6d-615c-4a32-97f6-5de226053c1d.png",
+      "width": 640,
+      "height": 640,
+      "alpha": true
+    },
+    {
+      "file": "public/passo/website-v3.webp",
+      "source": "C:/Users/leona/.codex/generated_images/01a0c662-89fa-74a3-83ad-4db32d795a5b/exec-a6716a68-46d7-4fe5-8ecd-ed487e2ecc60.png",
+      "width": 640,
+      "height": 640,
+      "alpha": true
+    },
+    {
+      "file": "public/passo/call-v3.webp",
+      "source": "C:/Users/leona/.codex/generated_images/01a0c662-89fa-74a3-83ad-4db32d795a5b/exec-5fa88462-c4b9-482d-8f90-36be59e41b5c.png",
+      "width": 640,
+      "height": 640,
+      "alpha": true
+    },
+    {
+      "file": "public/passo/software-v3.webp",
+      "source": "C:/Users/leona/.codex/generated_images/01a0c662-89fa-74a3-83ad-4db32d795a5b/exec-29e4b7d1-7435-4382-9154-813c22874f9d.png",
+      "width": 640,
+      "height": 640,
+      "alpha": true
+    }
+  ],
+  "realScreenshots": [
+    {
+      "file": "public/projects/real/florame-hub.webp",
+      "source": "https://hub.florame.ai/",
+      "note": "Public hub landing; not an authenticated dashboard"
+    },
+    {
+      "file": "public/projects/real/florame-fiorista.webp",
+      "source": "https://florame.ai/pages/fiori-nino"
+    }
+  ],
+  "realLogos": [
+    {
+      "file": "public/projects/logos/florame.webp",
+      "source": "https://florame.ai/cdn/shop/t/91/assets/florame-logo-v20260517.webp?v=30052998359571809741786968580"
+    },
+    {
+      "file": "public/projects/logos/1719.svg",
+      "source": "https://cdn.shopify.com/s/files/1/0887/8332/3459/files/1719logooo.svg?v=1755102480"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # PASSO — Digital studio
 
 Landing editoriale mobile-first in italiano. La v2 evolve la reference iniziale con l'identità PASSO fornita dall'utente, immagini originali e composizioni studiate su Poch.
-**Versione 2.0.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
+**Versione 2.1.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
 
 ## Avvio
 
@@ -24,16 +24,16 @@ L’export statico è in `out/`. Il progetto usa `output: "export"`: per la buil
 
 ## Funzionalità
 
-- Hero dinamica per `site`, `redesign`, `ecommerce`, `booking`, `other`.
+- Hero dinamica per `site`, `ecommerce`, `booking`, `ai-app`, `iot`, `other`. I vecchi link `?intent=redesign` selezionano «Sito».
 - Query `?intent=ecommerce` con precedenza sulla preferenza salvata nel browser. Parametri non validi vengono ignorati. Se lo storage è disabilitato il sito continua a funzionare.
 - La selezione non apre il form. Il preventivo salta il primo step quando esiste un intent; il tasto indietro consente comunque di cambiarlo.
 - Funnel a 3 step con validazione, campi condizionali, ritorno ai passaggi precedenti, gestione errori, loading e conferma.
 - Dialog nativo: focus contenuto, Escape, ripristino del focus, blocco dello scroll e pagina sottostante non interagibile.
-- Accordion FAQ, servizi espandibili, menu mobile e navigazione fra due visual Florame.
+- Accordion FAQ, servizi espandibili, menu mobile e gallerie Florame e 17/19.
 - CSS responsive dedicato, focus visibile e `prefers-reduced-motion`. Nessuna libreria UI o di animazione.
 - PASSO: wordmark e monogramma ricostruiti in SVG, favicon e slogan. Hero con scala architettonica, visual per intent, scelte glass e CTA blu.
 - Sei servizi con illustrazioni 3D trasparenti originali, esempi espandibili e nuovo pricing: 1.200 / 4.500 / 8.500 / 7.500 / 10.000 / 10.000 €.
-- Portfolio con quattro screenshot reali. Gallerie native con swipe, frecce, tastiera, avanzamento automatico e pausa; l'autoplay si ferma fuori viewport, con focus/hover e con movimento ridotto.
+- Portfolio con sei screenshot reali: Florame include sito, hub, pagina fiorista e AI. Gallerie senza frecce, contatori o pausa; swipe, trascinamento con il mouse e tastiera restano disponibili. Il portfolio avanza una sola volta, senza movimento continuo, e rispetta focus, interazione e movimento ridotto. Loghi ufficiali in trasparenza senza modificare il layout dei testi.
 - Blocchi «Parliamone», finestra call e «Inizia un progetto». Il brief scritto nella pagina passa direttamente al contatto nel funnel, con possibilità di tornare indietro.
 - Reveal delle parole, SVG animati, movimenti brevi degli oggetti e contatori dei pagamenti 30/20/50. Nessuna libreria di animazione o WebGL da caricare.
 
@@ -54,13 +54,15 @@ Screenshot reali attualmente utilizzati:
 ```text
 public/projects/real/florame-01.webp
 public/projects/real/florame-02.webp
+public/projects/real/florame-hub.webp
+public/projects/real/florame-fiorista.webp
 public/projects/real/1719-01.webp
 public/projects/real/1719-02.webp
 ```
 
 Acquisiti il 24 settembre 2026 a 1440 × 1080 px. Dopo una sostituzione eseguire `npm run assets:responsive` per rigenerare il `srcset`. I vecchi placeholder nei percorsi originali non sono più mostrati.
 
-Gli otto visual originali sono in `public/passo/`: sei illustrazioni di servizio, telefono e hero architettonica. Sono immagini generate, non foto dello studio. Prompt integrali e provenienza: `design/PASSO-ASSETS.md` e `design/passo-assets.json`. Il logo SVG è una ricostruzione della reference; può essere sostituito con il master ufficiale. Restano da fornire recapiti reali, eventuale link per le call e dati per l'invio effettivo del preventivo. Non sono presenti social, volti o disponibilità del team inventati.
+Gli otto visual originali sono in `public/passo/`: sei illustrazioni di servizio, telefono e hero architettonica. Sono immagini generate, non foto dello studio. La v2.1 sostituisce le immagini vetrina, sito web, gestionale e telefono con i file `*-v3.webp`; aggiunge la sequenza SVG lampadina → schizzo → pronto. Prompt e fonti nuovi: `design/PASSO-V2.1-ASSETS.json`. Prompt integrali e provenienza precedenti: `design/PASSO-ASSETS.md` e `design/passo-assets.json`. Il logo SVG è una ricostruzione della reference; può essere sostituito con il master ufficiale. Restano da fornire recapiti reali, eventuale link per le call e dati per l'invio effettivo del preventivo. Non sono presenti social, volti o disponibilità del team inventati.
 
 ## Struttura
 

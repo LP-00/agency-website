@@ -60,18 +60,17 @@ test("six services, payment terms and prices agree; rails support keyboard navig
   );
 });
 
-test("gallery pauses, counters finish, and no image is broken across the page", async ({
+test("gallery stays clean, counters finish, and no image is broken across the page", async ({
   page,
 }) => {
   await page.goto("./");
   await page.locator(".project-gallery").first().scrollIntoViewIfNeeded();
-  await page
-    .getByRole("button", { name: "Metti in pausa la galleria" })
-    .first()
-    .click();
+  await expect(page.locator(".project-gallery .rail-controls")).toHaveCount(0);
+  await expect(page.locator(".carousel-controls")).toHaveCount(0);
   await expect(
-    page.getByRole("button", { name: "Riprendi la galleria" }),
-  ).toBeVisible();
+    page.locator(".project-gallery").first().locator(".project-slide"),
+  ).toHaveCount(4);
+  await expect(page.locator(".project-watermark")).toHaveCount(2);
   for (const [i, value] of [30, 20, 50].entries()) {
     const counter = page.locator(".counter").nth(i);
     await counter.scrollIntoViewIfNeeded();
@@ -92,4 +91,51 @@ test("gallery pauses, counters finish, and no image is broken across the page", 
       .map((image) => image.src);
   });
   expect(broken).toEqual([]);
+});
+
+test("legacy redesign links select Sito and AI intents carry through the funnel", async ({
+  page,
+}) => {
+  await page.goto("./?intent=redesign");
+  await expect(page.locator('.hero input[value="site"]')).toBeChecked();
+  await expect(page.locator('.hero input[value="redesign"]')).toHaveCount(0);
+  for (const intent of ["ai-app", "iot"]) {
+    await page.goto(`./?intent=${intent}`);
+    await expect(page.locator(`.hero input[value="${intent}"]`)).toBeChecked();
+    await page
+      .getByRole("button", { name: "Preventivo", exact: true })
+      .first()
+      .click();
+    await expect(
+      page.getByRole("heading", { name: "Cosa vorresti ottenere?" }),
+    ).toBeVisible();
+    await page.keyboard.press("Escape");
+  }
+});
+
+test("portfolio supports mouse dragging without opening project links", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("./");
+  const rail = page.getByRole("region", {
+    name: "Galleria Florame",
+    exact: true,
+  });
+  await rail.scrollIntoViewIfNeeded();
+  const bounds = (await rail.boundingBox())!;
+  const popups: unknown[] = [];
+  page.on("popup", (popup) => popups.push(popup));
+  await page.mouse.move(bounds.x + bounds.width * 0.75, bounds.y + 90);
+  await page.mouse.down();
+  await page.mouse.move(bounds.x + 25, bounds.y + 90, { steps: 12 });
+  await page.mouse.up();
+  await expect
+    .poll(() => rail.evaluate((el) => el.scrollLeft))
+    .toBeGreaterThan(100);
+  expect(popups).toHaveLength(0);
+  await expect(page.locator("#work-heading")).toHaveText(
+    /Cosa abbiamo già\s*costruito quest’anno\./,
+    { useInnerText: false },
+  );
 });

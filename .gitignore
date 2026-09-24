@@ -9,3 +9,5 @@ playwright-report/
 !.env.example
 qa/lighthouse*.json
 qa/lighthouse*.html
+qa/v21-pass1/
+qa/v21-final/
