@@ -1,8 +1,8 @@
 export const projects = [
   {
-    name: "Florame",
+    name: "florame.ai",
     description:
-      "Un ecosistema digitale che unisce e-commerce, AI e una rete di fioristi.",
+      "Abbiamo costruito una piattaforma digitale che connette fioristi, clienti e tecnologia, con e-commerce, AI e gestione completa degli ordini.",
     tags: ["E-commerce", "AI", "Marketplace", "Ordini"],
     url: "https://florame.ai",
     logo: "/projects/logos/florame.webp",

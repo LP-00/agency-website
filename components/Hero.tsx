@@ -53,9 +53,7 @@ export function Hero() {
           <div className="hero-art" aria-hidden="true">
             <span className="hero-art-orbit" />
             <ServiceArt key={intent || "site"} name={copy.visual} eager />
-            <span className="hero-art-caption">
-              Idee concrete. Nuove possibilità.
-            </span>
+            <span className="hero-art-caption">{copy.caption}</span>
           </div>
           <div className="hero-conversion">
             <IntentSelector value={intent} onChange={selectIntent} />

@@ -1,0 +1,39 @@
+{
+  "method": "Built-in imagegen; transparent PNG originals preserved under Codex generated_images. Sharp resize to 640px WebP, other-v5 desaturated to match neutral palette.",
+  "prompts": [
+    [
+      "landing-v4",
+      "Create a single premium 3D editorial illustration for PASSO digital studio, to be used as a 640px transparent square cutout in a warm cream/charcoal website. Closely match the established visual language of a realistic thin desktop computer with a smaller upright phone beside it: believable precise hardware, tactile warm ivory ceramic and matte graphite, very subtle brushed metal, studio lighting, physically credible materials, visually rich screen content that explains the product at a glance, scale readable at 280px. Truly transparent background with clean alpha edges, centered composition fully visible, 7% breathing room. No background scene, no captions, no logos, no readable text, no invented statistics, no glow, no spheres, no generic floating cards, no pointless decorative shapes. Subject: one single tall smartphone, with a beautiful finished one-page landing page visible on its screen. The screen clearly has ONE striking photographic-style hero image of a real boutique work space, one compact dark headline block, a single prominent dark contact call-to-action button, and a small section below with two content blocks. Beside or just behind the phone place a small flat desktop browser slab showing the SAME one-page design, but keep the phone as the unmistakable hero. This should say landing page that converts visitors into inquiries, not e-commerce, not a storefront awning, not a full multipage website."
+    ],
+    [
+      "software-v4",
+      "Create a single premium 3D editorial illustration for PASSO digital studio, to be used as a 640px transparent square cutout in a warm cream/charcoal website. Closely match the established visual language of a realistic thin desktop computer with a smaller upright phone beside it: believable precise hardware, tactile warm ivory ceramic and matte graphite, very subtle brushed metal, studio lighting, physically credible materials, visually rich screen content that explains the product at a glance, scale readable at 280px. Truly transparent background with clean alpha edges, centered composition fully visible, 7% breathing room. No background scene, no captions, no logos, no readable text, no invented statistics, no glow, no spheres, no generic floating cards, no pointless decorative shapes. Subject: elegant desktop computer and one slim phone, arranged in exactly the same grounded relationship as a responsive website mockup. On the desktop monitor is a believable finished software management application: left navigation rail, large schedule with appointment blocks in a calendar, tidy task queue with two check marks and one small attendance list. On the phone, show the companion mobile bookings calendar with simple time slots. Restrained low-contrast neutral UI, no charts, no analytics bars, no business metrics. It must unmistakably read operational software for reservations, attendance and work management."
+    ],
+    [
+      "ai-app-v4",
+      "Create a single premium 3D editorial illustration for PASSO digital studio, to be used as a 640px transparent square cutout in a warm cream/charcoal website. Closely match the established visual language of a realistic thin desktop computer with a smaller upright phone beside it: believable precise hardware, tactile warm ivory ceramic and matte graphite, very subtle brushed metal, studio lighting, physically credible materials, visually rich screen content that explains the product at a glance, scale readable at 280px. Truly transparent background with clean alpha edges, centered composition fully visible, 7% breathing room. No background scene, no captions, no logos, no readable text, no invented statistics, no glow, no spheres, no generic floating cards, no pointless decorative shapes. Subject: a finished intelligent web application shown on a sophisticated slim laptop or tablet computer, with a smaller upright phone as companion. The visible app screen is a document workflow: file thumbnail column, central document preview with precise highlighted text passages, slim right-side assistant pane with two concise answer blocks and source markers. Place ONE small exquisitely designed matte graphite processor chip partly resting against the laptop edge, as a secondary object only. No circuit spaghetti, no networks of nodes, no generic tech dashboard. The application screen is the hero, chip supporting the AI concept."
+    ],
+    [
+      "other-v5",
+      "Premium tactile 3D editorial product illustration for PASSO digital studio, genuinely transparent square cutout, warm ivory ceramic and matte graphite precision hardware matching a realistic responsive computer+phone website illustration, studio lighting, 8% breathing room. Represent 'Tanto altro / custom digital solutions' broadly and instantly, without suggesting a particular industry. One slim desktop computer screen shows a beautiful cohesive custom software workspace with a visual workflow builder of 4 connected but clearly meaningful steps (inquiry, review, automation, delivery) on the left and a geographic map with 3 small location pins on the right. A small upright smartphone beside shows a companion mobile screen with a camera scan preview and one bold dark action button. A graphite stylus resting neatly at the base signals bespoke craftsmanship. UI is actually legible as a digital product, no gibberish fake words, no numerical metrics, no architecture floorplan, no AI chip, no decorative blobs, no glows, no loose cards, no logos, no captions outside device."
+    ]
+  ],
+  "assets": [
+    {
+      "path": "public/passo/landing-v4.webp",
+      "source": "C:/Users/leona/.codex/generated_images/01a0c662-89fa-74a3-83ad-4db32d795a5b/exec-e0271632-e470-4e78-9031-95a92fe2ec0b.png"
+    },
+    {
+      "path": "public/passo/software-v4.webp",
+      "source": "C:/Users/leona/.codex/generated_images/01a0c662-89fa-74a3-83ad-4db32d795a5b/exec-5be7af59-433d-4609-91a5-649fc7d198fa.png"
+    },
+    {
+      "path": "public/passo/ai-app-v4.webp",
+      "source": "C:/Users/leona/.codex/generated_images/01a0c662-89fa-74a3-83ad-4db32d795a5b/exec-13980a73-2e36-49d7-ad48-423840605a7b.png"
+    },
+    {
+      "path": "public/passo/other-v5.webp",
+      "source": "C:/Users/leona/.codex/generated_images/01a0c662-89fa-74a3-83ad-4db32d795a5b/exec-9b6d1429-13d1-4e93-9152-a8805d2ae13b.png"
+    }
+  ]
+}

@@ -83,7 +83,7 @@ for (const [width, height] of viewports) {
           path: `qa/${pass}/${width}-${id}.png`,
           caret: "initial",
         });
-    for (const name of ["case-study", "process", "payment"])
+    for (const name of ["process", "payment"])
       await page
         .locator(`.${name}`)
         .screenshot({

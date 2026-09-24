@@ -21,7 +21,7 @@ export const services: Service[] = [
     timing: "Circa 2 settimane",
     intent: "site",
     symbol: "site",
-    image: "landing-v3",
+    image: "landing-v4",
     description:
       "Una presenza essenziale, progettata per presentarti bene e trasformare l’interesse in un primo contatto.",
     examples: [
@@ -75,7 +75,7 @@ export const services: Service[] = [
     timing: "Tempistiche su progetto",
     intent: "booking",
     symbol: "calendar",
-    image: "software-v3",
+    image: "software-v4",
     description:
       "Meno passaggi manuali, più controllo. Strumenti costruiti intorno alle persone e al modo in cui lavori.",
     examples: [
@@ -93,7 +93,7 @@ export const services: Service[] = [
     timing: "Tempistiche su progetto",
     intent: "ai-app",
     symbol: "pages",
-    image: "ai-app",
+    image: "ai-app-v4",
     description:
       "Applicazioni su misura che integrano l’intelligenza artificiale nei processi, nei contenuti e nei servizi della tua azienda.",
     examples: [
@@ -120,5 +120,23 @@ export const services: Service[] = [
       "Sensori, alert e automazioni",
     ],
     note: "Il mondo fisico, connesso.",
+  },
+  {
+    id: "other",
+    title: "Tanto altro",
+    shortTitle: "Tanto altro",
+    price: "",
+    timing: "Da definire insieme",
+    intent: "other",
+    symbol: "pages",
+    image: "other-v5",
+    description:
+      "Strumenti e prodotti digitali costruiti intorno a esigenze che non rientrano in una categoria predefinita.",
+    examples: [
+      "Integrazioni su misura",
+      "Esperienze digitali interattive",
+      "Strumenti per processi particolari",
+    ],
+    note: "Diamo forma alla tua idea.",
   },
 ];

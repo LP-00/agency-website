@@ -1,7 +1,7 @@
 # PASSO — Digital studio
 
-Landing editoriale mobile-first in italiano. La v2 evolve la reference iniziale con l'identità PASSO fornita dall'utente, immagini originali e composizioni studiate su Poch.
-**Versione 2.1.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
+Landing editoriale mobile-first in italiano, con identità PASSO, immagini originali e composizioni responsive.
+**Versione 2.2.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
 
 ## Avvio
 
@@ -32,8 +32,8 @@ L’export statico è in `out/`. Il progetto usa `output: "export"`: per la buil
 - Accordion FAQ, servizi espandibili, menu mobile e gallerie Florame e 17/19.
 - CSS responsive dedicato, focus visibile e `prefers-reduced-motion`. Nessuna libreria UI o di animazione.
 - PASSO: wordmark e monogramma ricostruiti in SVG, favicon e slogan. Hero con scala architettonica, visual per intent, scelte glass e CTA blu.
-- Sei servizi con illustrazioni 3D trasparenti originali, esempi espandibili e nuovo pricing: 1.200 / 4.500 / 8.500 / 7.500 / 10.000 / 10.000 €.
-- Portfolio con sei screenshot reali: Florame include sito, hub, pagina fiorista e AI. Gallerie senza frecce, contatori o pausa; swipe, trascinamento con il mouse e tastiera restano disponibili. Il portfolio avanza una sola volta, senza movimento continuo, e rispetta focus, interazione e movimento ridotto. Loghi ufficiali in trasparenza senza modificare il layout dei testi.
+- Sette servizi con illustrazioni 3D trasparenti originali ed esempi espandibili. «Tanto altro» è su misura e non ha un prezzo inventato; il pricing mostra le sei offerte definite: 1.200 / 4.500 / 8.500 / 7.500 / 10.000 / 10.000 €.
+- Portfolio con sei screenshot reali: Florame include sito, hub, pagina fiorista e AI. Gallerie portfolio senza frecce, contatori o pausa; swipe, trascinamento con il mouse e tastiera restano disponibili. Progetti, servizi e prezzi scorrono automaticamente quando visibili: dopo un’interazione manuale si fermano per 10 secondi, poi ripartono. Nessun movimento automatico con `prefers-reduced-motion`. Loghi ufficiali in trasparenza senza modificare il layout dei testi.
 - Blocchi «Parliamone», finestra call e «Inizia un progetto». Il brief scritto nella pagina passa direttamente al contatto nel funnel, con possibilità di tornare indietro.
 - Reveal delle parole, SVG animati, movimenti brevi degli oggetti e contatori dei pagamenti 30/20/50. Nessuna libreria di animazione o WebGL da caricare.
 
@@ -62,7 +62,7 @@ public/projects/real/1719-02.webp
 
 Acquisiti il 24 settembre 2026 a 1440 × 1080 px. Dopo una sostituzione eseguire `npm run assets:responsive` per rigenerare il `srcset`. I vecchi placeholder nei percorsi originali non sono più mostrati.
 
-Gli otto visual originali sono in `public/passo/`: sei illustrazioni di servizio, telefono e hero architettonica. Sono immagini generate, non foto dello studio. La v2.1 sostituisce le immagini vetrina, sito web, gestionale e telefono con i file `*-v3.webp`; aggiunge la sequenza SVG lampadina → schizzo → pronto. Prompt e fonti nuovi: `design/PASSO-V2.1-ASSETS.json`. Prompt integrali e provenienza precedenti: `design/PASSO-ASSETS.md` e `design/passo-assets.json`. Il logo SVG è una ricostruzione della reference; può essere sostituito con il master ufficiale. Restano da fornire recapiti reali, eventuale link per le call e dati per l'invio effettivo del preventivo. Non sono presenti social, volti o disponibilità del team inventati.
+I visual attivi sono in `public/passo/`: sette illustrazioni di servizio, il telefono e la hero architettonica. Sono immagini generate, non foto dello studio. La v2.2 aggiunge `landing-v4.webp`, `software-v4.webp`, `ai-app-v4.webp` e `other-v5.webp`, con prompt e fonti in `design/PASSO-V2.2-ASSETS.json`. La sezione Focus è confluita nella descrizione di florame.ai. La v2.1 ha introdotto il telefono e la sequenza SVG lampadina → schizzo → pronto; le fonti sono in `design/PASSO-V2.1-ASSETS.json`. Prompt integrali e provenienza precedenti: `design/PASSO-ASSETS.md` e `design/passo-assets.json`. Il logo SVG è una ricostruzione della reference; può essere sostituito con il master ufficiale. Restano da fornire recapiti reali, eventuale link per le call e dati per l'invio effettivo del preventivo. Non sono presenti social, volti o disponibilità del team inventati.
 
 ## Struttura
 
@@ -115,4 +115,4 @@ Il deploy usa `NEXT_PUBLIC_BASE_PATH=/agency-website`. Per un dominio dedicato i
 
 ## Copy e personalizzazione
 
-La headline predefinita è quella richiesta. Le quattro varianti per intent sono copy proposte in `data/intents.ts`. Prezzi e tempi vengono da `data/services.ts`; non sono state aggiunte promesse commerciali numeriche. La gestione IVA e i termini finali del preventivo restano da concordare con l’agenzia.
+La headline predefinita è quella richiesta. Le sei varianti per intent sono copy proposte in `data/intents.ts`. Prezzi e tempi vengono da `data/services.ts`; non sono state aggiunte promesse commerciali numeriche. La gestione IVA e i termini finali del preventivo restano da concordare con l’agenzia.

@@ -28,6 +28,7 @@ export function Services() {
         <HorizontalRail
           label="Servizi"
           className="service-collection grid-on-desktop"
+          autoplay
         >
           {services.map((s, i) => (
             <article className="service-poster" key={s.id}>
@@ -36,7 +37,13 @@ export function Services() {
                   /{String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="service-from">
-                  Da <strong>{s.price} €</strong>
+                  {s.price ? (
+                    <>
+                      Da <strong>{s.price} €</strong>
+                    </>
+                  ) : (
+                    "Su misura"
+                  )}
                 </span>
               </div>
               <ServiceArt name={s.image} />

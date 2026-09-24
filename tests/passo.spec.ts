@@ -25,18 +25,24 @@ test("project starter validates and carries service and brief into the contact s
   await expect(form.getByRole("button", { name: "Continua" })).toBeFocused();
 });
 
-test("six services, payment terms and prices agree; rails support keyboard navigation", async ({
+test("seven services, six stated prices and payment terms agree; rails support keyboard navigation", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./");
-  await expect(page.locator(".service-poster")).toHaveCount(6);
+  await expect(page.locator(".service-poster")).toHaveCount(7);
   await expect(page.locator(".price-package")).toHaveCount(6);
   const prices = ["1.200", "4.500", "8.500", "7.500", "10.000", "10.000"];
   for (const [i, price] of prices.entries()) {
     await expect(page.locator(".service-from").nth(i)).toContainText(price);
     await expect(page.locator(".package-price p").nth(i)).toContainText(price);
   }
+  await expect(page.locator(".service-poster").last()).toContainText(
+    "Tanto altro",
+  );
+  await expect(page.locator(".service-poster").last()).toContainText(
+    "Su misura",
+  );
   const rail = page.getByRole("region", { name: "Servizi", exact: true });
   await rail.focus();
   await page.keyboard.press("ArrowRight");
@@ -71,6 +77,13 @@ test("gallery stays clean, counters finish, and no image is broken across the pa
     page.locator(".project-gallery").first().locator(".project-slide"),
   ).toHaveCount(4);
   await expect(page.locator(".project-watermark")).toHaveCount(2);
+  await expect(page.locator(".case-study")).toHaveCount(0);
+  await expect(page.locator("#lavori .eyebrow").first()).toHaveText(
+    "I nostri progetti",
+  );
+  await expect(page.locator(".project-copy h3").first()).toContainText(
+    "florame.ai",
+  );
   for (const [i, value] of [30, 20, 50].entries()) {
     const counter = page.locator(".counter").nth(i);
     await counter.scrollIntoViewIfNeeded();
@@ -119,7 +132,7 @@ test("portfolio supports mouse dragging without opening project links", async ({
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("./");
   const rail = page.getByRole("region", {
-    name: "Galleria Florame",
+    name: "Galleria florame.ai",
     exact: true,
   });
   await rail.scrollIntoViewIfNeeded();
@@ -138,4 +151,20 @@ test("portfolio supports mouse dragging without opening project links", async ({
     /Cosa abbiamo già\s*costruito quest’anno\./,
     { useInnerText: false },
   );
+});
+
+test("portfolio stops after manual scrolling and resumes after ten seconds", async ({ page }) => {
+  test.setTimeout(35_000);
+  await page.goto("./");
+  const rail = page.getByRole("region", { name: "Galleria florame.ai" });
+  await rail.scrollIntoViewIfNeeded();
+  await expect.poll(() => rail.evaluate((el) => el.scrollLeft), { timeout: 7000 }).toBeGreaterThan(100);
+  await rail.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect.poll(() => rail.evaluate((el) => el.scrollLeft)).toBeGreaterThan(400);
+  await page.waitForTimeout(3800);
+  const stopped = await rail.evaluate((el) => el.scrollLeft);
+  await page.waitForTimeout(1200);
+  expect(Math.abs((await rail.evaluate((el) => el.scrollLeft)) - stopped)).toBeLessThan(3);
+  await expect.poll(() => rail.evaluate((el) => el.scrollLeft), { timeout: 8500 }).toBeGreaterThan(stopped + 100);
 });

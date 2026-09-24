@@ -23,13 +23,19 @@ export function HorizontalRail({
 }) {
   const rail = useRef<HTMLDivElement>(null);
   const current = useRef(0);
+  const direction = useRef(1);
+  const resumeAt = useRef(0);
+  const scheduleNext = useRef<((delay: number) => void) | null>(null);
   const drag = useRef<{ x: number; scroll: number; moved: boolean } | null>(
     null,
   );
   const suppressClick = useRef(false);
   const [index, setIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
   const count = Children.count(children);
+  const pauseForInteraction = useCallback(() => {
+    resumeAt.current = Date.now() + 10_000;
+    scheduleNext.current?.(10_000);
+  }, []);
   const move = useCallback(
     (next: number) => {
       const el = rail.current;
@@ -49,38 +55,51 @@ export function HorizontalRail({
   useEffect(() => {
     const el = rail.current;
     if (!el) return;
+    const track = el;
     let visible = false;
-    let advanced = false;
+    let timer: number | undefined;
     const media = matchMedia("(prefers-reduced-motion: reduce)");
     const observer = new IntersectionObserver(
-      ([e]) => (visible = e.isIntersecting),
+      ([e]) => {
+        visible = e.isIntersecting;
+        if (visible) schedule(3600);
+        else clearTimeout(timer);
+      },
       { threshold: 0.2 },
     );
     observer.observe(el);
-    const interval = autoplay
-      ? window.setInterval(
-          () => {
-            if (
-              visible &&
-              (controls || !advanced) &&
-              !paused &&
-              !media.matches &&
-              !document.hidden &&
-              !el.matches(":hover") &&
-              !el.contains(document.activeElement)
-            ) {
-              move((current.current + 1) % count);
-              advanced = true;
-            }
-          },
-          controls ? 5500 : 2800,
-        )
-      : undefined;
+    function schedule(delay: number) {
+      clearTimeout(timer);
+      if (!autoplay || count < 2) return;
+      timer = window.setTimeout(() => {
+        if (
+          !visible ||
+          document.hidden ||
+          media.matches ||
+          track.scrollWidth <= track.clientWidth + 2
+        ) {
+          schedule(3600);
+          return;
+        }
+        const remaining = resumeAt.current - Date.now();
+        if (remaining > 0) {
+          schedule(remaining);
+          return;
+        }
+        if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 2)
+          direction.current = -1;
+        if (track.scrollLeft <= 2) direction.current = 1;
+        move(current.current + direction.current);
+        schedule(3600);
+      }, delay);
+    }
+    scheduleNext.current = schedule;
     return () => {
       observer.disconnect();
-      clearInterval(interval);
+      clearTimeout(timer);
+      scheduleNext.current = null;
     };
-  }, [autoplay, paused, count, move, controls]);
+  }, [autoplay, count, move]);
   function onScroll() {
     const el = rail.current;
     if (!el) return;
@@ -109,7 +128,7 @@ export function HorizontalRail({
         tabIndex={0}
         onScroll={onScroll}
         onPointerDown={(e) => {
-          setPaused(true);
+          pauseForInteraction();
           suppressClick.current = false;
           if (e.pointerType === "mouse" && e.button === 0) {
             drag.current = {
@@ -152,11 +171,14 @@ export function HorizontalRail({
           }
         }}
         onDragStart={(e) => e.preventDefault()}
+        onWheel={pauseForInteraction}
+        onTouchStart={pauseForInteraction}
+        onFocusCapture={pauseForInteraction}
         onKeyDown={(e) => {
           if (e.target !== e.currentTarget) return;
           if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
             e.preventDefault();
-            setPaused(true);
+            pauseForInteraction();
             move(index + (e.key === "ArrowRight" ? 1 : -1));
           }
         }}
@@ -170,36 +192,12 @@ export function HorizontalRail({
             <span>/ {String(count).padStart(2, "0")}</span>
           </span>
           <div>
-            {autoplay && (
-              <button
-                className="icon-button rail-pause"
-                aria-label={
-                  paused ? "Riprendi la galleria" : "Metti in pausa la galleria"
-                }
-                onClick={() => setPaused(!paused)}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  {paused ? (
-                    <path d="m9 5 10 7-10 7Z" />
-                  ) : (
-                    <path d="M8 5v14M16 5v14" />
-                  )}
-                </svg>
-              </button>
-            )}
             <button
               className="icon-button"
               aria-label={`Precedente: ${label}`}
               disabled={index === 0}
               onClick={() => {
-                setPaused(true);
+                pauseForInteraction();
                 move(index - 1);
               }}
             >
@@ -210,7 +208,7 @@ export function HorizontalRail({
               aria-label={`Successivo: ${label}`}
               disabled={index === count - 1}
               onClick={() => {
-                setPaused(true);
+                pauseForInteraction();
                 move(index + 1);
               }}
             >

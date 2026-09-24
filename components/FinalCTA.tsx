@@ -12,7 +12,7 @@ export function FinalCTA() {
     >
       <div className="call-window-stage">
         <span className="call-backdrop" aria-hidden="true">
-          PASSO.
+          <Brand />
         </span>
         <div className="call-window">
           <div className="call-avatar" aria-hidden="true">

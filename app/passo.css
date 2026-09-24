@@ -1910,3 +1910,78 @@
 .rail-track.is-dragging a {
   cursor: grabbing;
 }
+/* PASSO 2.2: fitted monogram wordmark and desktop rails. */
+.passo-brand {
+  align-items: baseline;
+  gap: 0;
+}
+.passo-brand svg {
+  width: 0.73em;
+  height: 0.76em;
+  margin-right: -0.105em;
+}
+.passo-brand > span {
+  transform: none;
+}
+.call-backdrop {
+  width: min(94vw, 1080px);
+  max-width: calc(100% - 32px);
+  left: 50%;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  font-size: inherit;
+  letter-spacing: normal;
+  line-height: 1;
+  color: #f4f1ea;
+  opacity: 0.19;
+  transform: translate(-50%, -50%) rotate(-7deg);
+}
+.call-backdrop .passo-brand {
+  font-size: clamp(65px, 20vw, 205px);
+  white-space: nowrap;
+}
+.footer-brand .passo-brand {
+  font-size: clamp(72px, 19vw, 240px);
+}
+.service-collection .rail-track,
+.price-collection .rail-track {
+  align-items: stretch;
+}
+@media (min-width: 1024px) {
+  .grid-on-desktop .rail-track {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    align-items: stretch;
+    padding: 4px 0 6px;
+    scroll-snap-type: x mandatory;
+  }
+  .grid-on-desktop .rail-controls {
+    display: flex;
+  }
+  .grid-on-desktop .service-poster,
+  .grid-on-desktop .price-package {
+    flex: 0 0 calc((100% - 48px) / 3);
+  }
+  .service-poster > .service-art {
+    height: 248px;
+  }
+}
+.call-window-stage {
+  padding-top: clamp(145px, 20vw, 250px);
+}
+.call-backdrop {
+  top: 24px;
+  transform: translateX(-50%) rotate(-7deg);
+  opacity: 0.24;
+}
+.passo-brand svg {
+  margin-right: -0.14em;
+}
+.call-backdrop {
+  opacity: 0.42;
+}
+.footer-brand .passo-brand {
+  font-size: clamp(86px, 23vw, 260px);
+}

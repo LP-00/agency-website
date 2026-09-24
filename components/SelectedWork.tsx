@@ -15,7 +15,7 @@ export function SelectedWork() {
       aria-labelledby="work-heading"
     >
       <div className="container">
-        <SectionHeading eyebrow="Lavori selezionati" id="work-heading">
+        <SectionHeading eyebrow="I nostri progetti" id="work-heading">
           <WordReveal text="Cosa abbiamo già" />
           <br />
           <strong>costruito quest’anno.</strong>

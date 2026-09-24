@@ -124,7 +124,7 @@ test("menu, service disclosures, FAQ, carousel and price selection", async ({
   await expect(page.locator("#faq-answer-0")).toBeHidden();
   await expect(page.locator("#faq-answer-1")).toBeVisible();
   const gallery = page.getByRole("region", {
-    name: "Viste del progetto Florame",
+    name: "Galleria florame.ai",
   });
   await gallery.focus();
   await page.keyboard.press("ArrowRight");
