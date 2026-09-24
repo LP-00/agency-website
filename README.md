@@ -93,6 +93,8 @@ Le acquisizioni complete coprono 375 × 812, 390 × 844, 430 × 932, 768 × 1024
 
 I test includono le cinque headline approvate, le preferenze di movimento, il caricamento degli asset, i sei prezzi, i contatori e il passaggio del brief dalla pagina al funnel. Il report della revisione corrente è in `qa/PASSO-V2-REVIEW.md`. Gli screenshot dei tre passaggi sono in `qa/passo-pass1`, `qa/passo-pass2` e `qa/passo-final`. I punteggi Lighthouse delle versioni precedenti non descrivono questa versione.
 
+Lighthouse mobile sul sito pubblico v2: **66 Performance / 100 Accessibilità / 100 Best Practices / 100 SEO**, LCP 2,7 s e CLS 0. Il target Performance >90 non è ancora raggiunto. Tutti gli 11 test funzionali/accessibilità passano; l'ultimo intervento sul layout è stato ricontrollato con i test di accessibilità e reduced motion.
+
 ## Deploy
 
 GitHub Pages pubblica l’export dal branch `codex/pages`. Lo script seguente verifica lint e TypeScript, esegue la build con il base path corretto e pubblica solo `out/`, senza cambiare branch o modificare i sorgenti:

@@ -34,3 +34,7 @@ Il preventivo resta una demo frontend esplicita finché non viene configurato `N
 ## Pubblicazione
 
 La versione e il commit realmente pubblicati sono verificabili in https://lp-00.github.io/agency-website/deployment.json. Il branch di pubblicazione è `codex/pages`; i sorgenti sono su `main`.
+
+Pubblicazione verificata il 24 settembre 2026: Pages `built`, versione `2.0.0`, sorgente applicativo `db2f0fdb3282b542bb6773014a5c1f8b4f8d226e`, commit Pages `4aafbd2d1a11136498a39b8c6872d8755256818e`. Smoke test sull'URL pubblico: intent e-commerce, versione footer, tutte le immagini, starter Web app AI e trasferimento del brief al contatto, desktop senza overflow e nessun errore JavaScript.
+
+Lighthouse 13.5 mobile sul sito pubblico, dopo l'ottimizzazione dei layout: **66 Performance / 100 Accessibilità / 100 Best Practices / 100 SEO**. LCP **2,7 s**, TBT **1.650 ms**, CLS **0**. Report locale: `qa/lighthouse-passo-live.json`. Il target Performance >90 rimane aperto: la priorità successiva è ridurre il lavoro iniziale di rendering e idratazione sui dispositivi meno potenti, preservando le interazioni. Non si attribuiscono alla v2 i punteggi della vecchia landing.

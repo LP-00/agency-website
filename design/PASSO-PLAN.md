@@ -27,8 +27,10 @@ Servizi: sito vetrina 1.200 €, sito web 4.500 €, e-commerce 8.500 €, softw
 - [x] Motion: reveal per parola, movimento di immagini, contatori 30/20/50, interazioni; stop fuori viewport e movimento ridotto.
 - [x] QA visiva: almeno tre passaggi, sei viewport, nessun overflow o headline spezzata male, immagini complete.
 - [x] QA funzionale: intent, gallerie, FAQ, servizi, preventivo, focus, reduced motion, audit accessibilità.
-- [ ] Consegna: README, versione 2.0.0, lint, TypeScript, build, commit, deploy, verifica URL pubblico.
+- [x] Consegna: README, versione 2.0.0, lint, TypeScript, build, commit, deploy, verifica URL pubblico.
 
 Si spuntano le voci dopo verifica; non si dichiara perfezione assoluta. Foto del team, recapiti e backend di contatto richiedono dati reali: nell'attesa il percorso usa la demo frontend già dichiarata.
+
+Verifica pubblica completata: versione 2.0.0, commit applicativo `db2f0fd`, asset caricati, intent e passaggio del brief al contatto funzionanti. Lighthouse mobile pubblico: Performance 66, Accessibilità 100, Best Practices 100, SEO 100. Il target Performance >90 non è raggiunto: rimane una priorità di ottimizzazione, documentata nel report QA.
 
 Fonti: https://poch.studio/ · https://21st.dev/community/components/explore/scroll-animation-component · https://uiverse.io/buttons · https://lottiefiles.com/free-animations/phone-call · https://florame.ai/pages/florame-ai-landing
