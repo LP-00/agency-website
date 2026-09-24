@@ -28,7 +28,7 @@ export function CaseStudy() {
         >
           <ProjectVisual
             key={slide}
-            src={`/projects/florame-0${slide + 1}.webp`}
+            src={`/projects/real/florame-0${slide + 1}.webp`}
             name="Florame"
             number={`0${slide + 1}`}
             className={slide === 1 ? "secondary-visual" : ""}
@@ -36,7 +36,7 @@ export function CaseStudy() {
         </div>
         <div className="focus-bottom">
           <a
-            href={slide === 0 ? "https://florame.ai" : "https://hub.florame.ai"}
+            href={slide === 0 ? "https://florame.ai" : "https://florame.ai/pages/florame-ai-landing"}
             target="_blank"
             rel="noreferrer"
             className="text-link"

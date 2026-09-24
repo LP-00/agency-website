@@ -14,7 +14,7 @@ type AgencyContext = {
   ready: boolean;
   intent: Intent | null;
   selectIntent: (intent: Intent) => void;
-  openQuote: (intent?: Intent, service?: string) => void;
+  openQuote: (intent?: Intent, service?: string, description?: string) => void;
 };
 const Context = createContext<AgencyContext | null>(null);
 export function useAgency() {
@@ -27,6 +27,7 @@ export function AgencyProvider({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [service, setService] = useState<string>();
+  const [draft, setDraft] = useState<string>();
   useEffect(() => {
     function restore() {
       const query = new URLSearchParams(window.location.search).get("intent");
@@ -63,9 +64,10 @@ export function AgencyProvider({ children }: { children: React.ReactNode }) {
     window.history.replaceState(null, "", url);
   }, []);
   const openQuote = useCallback(
-    (value?: Intent, requestedService?: string) => {
+    (value?: Intent, requestedService?: string, description?: string) => {
       if (value) selectIntent(value);
       setService(requestedService);
+      setDraft(description);
       setOpen(true);
     },
     [selectIntent],
@@ -73,7 +75,13 @@ export function AgencyProvider({ children }: { children: React.ReactNode }) {
   return (
     <Context.Provider value={{ ready, intent, selectIntent, openQuote }}>
       {children}
-      {isOpen && <QuoteFlow service={service} onClose={() => setOpen(false)} />}
+      {isOpen && (
+        <QuoteFlow
+          service={service}
+          draftDescription={draft}
+          onClose={() => setOpen(false)}
+        />
+      )}
     </Context.Provider>
   );
 }

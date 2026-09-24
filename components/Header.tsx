@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Brand } from "./Brand";
 import { Icon } from "./Icon";
 import { QuoteButton } from "./QuoteButton";
 import { Dialog } from "./Dialog";
@@ -10,8 +11,8 @@ export function Header() {
   return (
     <>
       <header className="header">
-        <a href="#inizio" aria-label="/A — Inizio" className="wordmark">
-          /A
+        <a href="#inizio" aria-label="PASSO — Inizio" className="brand-link">
+          <Brand />
         </a>
         <nav aria-label="Navigazione principale" className="desktop-nav">
           <a href="#lavori">Lavori</a>
@@ -41,7 +42,7 @@ export function Header() {
           className="menu-dialog"
         >
           <p id="menu-title" className="eyebrow">
-            /A — Menu
+            PASSO — Menu
           </p>
           <nav aria-label="Menu">
             <a href="#lavori" onClick={() => setMenu(false)}>

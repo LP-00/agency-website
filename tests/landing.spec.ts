@@ -37,25 +37,37 @@ test("full quote flow, validation, back navigation, focus containment and demo s
   await opener.click();
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
-  await page.getByRole("button", { name: "Continua", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Continua", exact: true })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Cosa vuoi realizzare?" }),
   ).toBeVisible();
   await page.getByLabel("Rifare il mio sito", { exact: true }).check();
-  await page.getByRole("button", { name: "Continua", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Continua", exact: true })
+    .click();
   await page
     .getByLabel("Descrivi il progetto")
     .fill("Vorrei rinnovare il sito della mia attività.");
   await page.getByText("Sì", { exact: true }).click();
   await page.getByLabel(/Indirizzo del sito/).fill("https://example.com");
-  await page.getByRole("button", { name: "Continua", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Continua", exact: true })
+    .click();
   await page
     .getByRole("button", { name: "Torna allo step precedente" })
     .click();
   await expect(page.getByLabel("Descrivi il progetto")).toHaveValue(
     "Vorrei rinnovare il sito della mia attività.",
   );
-  await page.getByRole("button", { name: "Continua", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Continua", exact: true })
+    .click();
   await page
     .getByRole("button", { name: "Richiedi il preventivo", exact: true })
     .click();
@@ -138,6 +150,11 @@ test("accessibility: page and every funnel step", async ({ page }) => {
       await Promise.all(
         document
           .getAnimations()
+          .filter(
+            (animation) =>
+              animation.playState === "running" &&
+              animation.effect?.getComputedTiming().iterations !== Infinity,
+          )
           .map((animation) => animation.finished.catch(() => {})),
       );
     });
@@ -167,7 +184,10 @@ test("accessibility: page and every funnel step", async ({ page }) => {
   await expect(page.getByRole("dialog")).toBeVisible();
   await audit();
   await page.getByLabel("Un nuovo sito", { exact: true }).check();
-  await page.getByRole("button", { name: "Continua", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Continua", exact: true })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Cosa vorresti ottenere?" }),
   ).toBeVisible();
@@ -175,7 +195,10 @@ test("accessibility: page and every funnel step", async ({ page }) => {
   await page
     .getByLabel("Descrivi il progetto")
     .fill("Un progetto da realizzare per il mio business.");
-  await page.getByRole("button", { name: "Continua", exact: true }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Continua", exact: true })
+    .click();
   await expect(
     page.getByRole("heading", { name: "Dove possiamo ricontattarti?" }),
   ).toBeVisible();

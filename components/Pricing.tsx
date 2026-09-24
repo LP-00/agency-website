@@ -1,50 +1,69 @@
 import { services } from "@/data/services";
 import { SectionHeading } from "./SectionHeading";
 import { QuoteButton } from "./QuoteButton";
+import { ServiceArt } from "./ServiceArt";
+import { WordReveal } from "./WordReveal";
+import { HorizontalRail } from "./HorizontalRail";
 export function Pricing() {
   return (
     <section
       id="prezzi"
-      className="section dark pricing"
+      className="section dark pricing passo-pricing"
       aria-labelledby="pricing-heading"
     >
       <div className="container">
         <SectionHeading eyebrow="Pricing" id="pricing-heading">
-          <strong>Prezzi chiari,</strong>
+          <WordReveal text="Grandi idee." />
           <br />
-          senza sorprese.
+          <em>Prezzi chiari.</em>
         </SectionHeading>
-        <div className="pricing-grid">
-          {services.map((service, index) => (
-            <article className="price-card" key={service.title}>
-              <span className="price-index" aria-hidden="true">
-                0{index + 1}
-              </span>
-              <h3>
-                {service.title === "Prenotazioni / Gestionale"
-                  ? "Gestionale / Prenotazioni"
-                  : service.title}
-              </h3>
-              <p className="price-value">
-                Da <strong>{service.price} €</strong>
-              </p>
-              <p className="price-timing">
-                <em>{service.timing}</em>
-              </p>
+        <HorizontalRail
+          label="Prezzi e soluzioni"
+          className="price-collection grid-on-desktop"
+        >
+          {services.map((s, i) => (
+            <article className={`price-package price-package-${i}`} key={s.id}>
+              <div className="package-body">
+                <div className="package-heading">
+                  <span className="eyebrow">
+                    PASSO / {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <ServiceArt name={s.image} />
+                  <h3>{s.shortTitle}</h3>
+                  <p>{s.note}</p>
+                </div>
+                <ul className="package-features">
+                  {s.examples.map((e) => (
+                    <li key={e}>{e}</li>
+                  ))}
+                </ul>
+                <div className="package-price">
+                  <span>A partire da</span>
+                  <p>
+                    {s.price}
+                    <span> €</span>
+                  </p>
+                  <small>{s.timing}</small>
+                </div>
+              </div>
               <QuoteButton
-                className="price-card-link"
+                className="button-light package-cta"
+                intent={s.intent}
+                service={s.title}
                 arrow
-                intent={service.intent}
-                service={service.title}
               >
+                <span aria-hidden="true">Parliamo del progetto</span>
                 <span className="sr-only">
-                  Richiedi un preventivo per {service.title}
+                  Richiedi un preventivo per {s.title}
                 </span>
               </QuoteButton>
             </article>
           ))}
-        </div>
-        <QuoteButton className="button-light pricing-cta" />
+        </HorizontalRail>
+        <p className="pricing-footnote">
+          Ogni progetto ha il suo percorso. Definiamo insieme funzionalità,
+          tempi e prezzo prima di iniziare.
+        </p>
       </div>
     </section>
   );

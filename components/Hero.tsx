@@ -1,5 +1,5 @@
 "use client";
-import { MotionSignature } from "./MotionSignature";
+import { ServiceArt } from "./ServiceArt";
 import { RichText } from "./RichText";
 import Image from "next/image";
 import { asset } from "@/lib/assets";
@@ -13,17 +13,17 @@ export function Hero() {
   const copy = intents.find((item) => item.id === intent) || intents[0];
   return (
     <section
-      className="hero dark"
+      className="hero dark passo-hero"
       data-intent={intent || "site"}
       id="inizio"
       aria-labelledby="hero-heading"
     >
       <div className="hero-image">
         <Image
-          src={asset("/images/workspace.webp")}
+          src={asset("/passo/hero.webp")}
           alt=""
           fill
-          sizes="(min-width: 1024px) 65vw, (min-width: 768px) 1500px, 1000px"
+          sizes="100vw"
           loading="eager"
           fetchPriority="high"
         />
@@ -50,6 +50,25 @@ export function Hero() {
               <RichText text={copy.description} />
             </p>
           </div>
+          <div className="hero-art" aria-hidden="true">
+            <span className="hero-art-orbit" />
+            <ServiceArt
+              key={intent || "site"}
+              name={
+                {
+                  site: "landing",
+                  redesign: "website",
+                  ecommerce: "commerce",
+                  booking: "software",
+                  other: "ai-app",
+                }[intent || "site"]
+              }
+              eager
+            />
+            <span className="hero-art-caption">
+              Idee concrete. Nuove possibilità.
+            </span>
+          </div>
           <div className="hero-conversion">
             <IntentSelector value={intent} onChange={selectIntent} />
             <QuoteButton className="button-light button-full" />
@@ -57,10 +76,11 @@ export function Hero() {
               <RichText text="Nessun impegno. Ti ricontattiamo per capire il progetto." />
             </p>
           </div>
-          <MotionSignature />
-          <div className="hero-side-note" aria-hidden="true">
-            Costruito intorno a te.<span>Design & sviluppo indipendente</span>
-          </div>
+        </div>
+        <div className="hero-signoff">
+          <span>PASSO — Digital studio</span>
+          <span>Ogni progetto, un passo avanti.</span>
+          <span aria-hidden="true">↓</span>
         </div>
       </div>
     </section>

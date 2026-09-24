@@ -10,6 +10,7 @@ import { Pricing } from "@/components/Pricing";
 import { Payment } from "@/components/Payment";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
+import { CallUs } from "@/components/CallUs";
 export default function Home() {
   return (
     <AgencyProvider>
@@ -18,6 +19,7 @@ export default function Home() {
         <SelectedWork />
         <WhyUs />
         <Services />
+        <CallUs />
         <CaseStudy />
         <Process />
         <Pricing />

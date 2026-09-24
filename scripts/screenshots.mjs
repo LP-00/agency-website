@@ -1,4 +1,4 @@
-import { chromium } from "@playwright/test";
+import { chromium, expect } from "@playwright/test";
 import { mkdir, writeFile } from "node:fs/promises";
 const baseURL = process.env.QA_URL || "http://localhost:3000";
 const pass = process.env.QA_PASS || "final";
@@ -27,6 +27,9 @@ for (const [width, height] of viewports) {
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto(baseURL, { waitUntil: "networkidle", timeout: 120000 });
+  await expect(
+    page.getByRole("button", { name: "Preventivo", exact: true }).first(),
+  ).toBeEnabled();
   await page.evaluate(() => document.fonts.ready);
   await page.locator("img").evaluateAll(async (images) => {
     await Promise.all(
@@ -37,23 +40,29 @@ for (const [width, height] of viewports) {
     );
   });
   await page.screenshot({
+    caret: "initial",
     path: `qa/${pass}/${width}-full.png`,
     fullPage: true,
   });
-  await page.screenshot({ path: `qa/${pass}/${width}-hero.png` });
-  const sections = await page
-    .locator("main > section")
-    .evaluateAll((nodes) =>
-      nodes.map((node) => ({
-        id: node.id || node.className,
-        height: Math.round(node.getBoundingClientRect().height),
-      })),
-    );
+  await page.screenshot({
+    path: `qa/${pass}/${width}-hero.png`,
+    caret: "initial",
+  });
+  const sections = await page.locator("main > section").evaluateAll((nodes) =>
+    nodes.map((node) => ({
+      id: node.id || node.className,
+      height: Math.round(node.getBoundingClientRect().height),
+    })),
+  );
   const overflow = await page.evaluate(() => ({
     viewport: innerWidth,
     document: document.documentElement.scrollWidth,
     offenders: [...document.querySelectorAll("body *")]
-      .filter((el) => el.getBoundingClientRect().right > innerWidth + 1)
+      .filter(
+        (el) =>
+          !el.closest(".rail-track,.call-window-stage") &&
+          el.getBoundingClientRect().right > innerWidth + 1,
+      )
       .map((el) => el.tagName + "." + el.className)
       .slice(0, 10),
   }));
@@ -63,15 +72,24 @@ for (const [width, height] of viewports) {
       "lavori",
       "approccio",
       "servizi",
+      "parliamone",
       "prezzi",
       "faq",
       "preventivo",
     ])
       await page
         .locator(`#${id}`)
-        .screenshot({ path: `qa/${pass}/${width}-${id}.png` });
+        .screenshot({
+          path: `qa/${pass}/${width}-${id}.png`,
+          caret: "initial",
+        });
     for (const name of ["case-study", "process", "payment"])
-      await page.locator(`.${name}`).screenshot({path:`qa/${pass}/${width}-${name}.png`});
+      await page
+        .locator(`.${name}`)
+        .screenshot({
+          path: `qa/${pass}/${width}-${name}.png`,
+          caret: "initial",
+        });
     await page
       .getByRole("button", { name: "Preventivo", exact: true })
       .first()

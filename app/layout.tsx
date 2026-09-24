@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { asset } from "@/lib/assets";
 import "./globals.css";
 import "./polish.css";
+import "./passo.css";
 
 const manrope = localFont({
   src: "../public/fonts/manrope-latin-variable.woff2",
@@ -11,10 +12,10 @@ const manrope = localFont({
   weight: "400 700",
 });
 export const metadata: Metadata = {
-  title: "/A — Strategia, design e sviluppo web",
+  title: "PASSO — Ogni progetto, un passo avanti.",
   description:
     "Siti web, e-commerce e strumenti digitali costruiti intorno al tuo business. Scopri i nostri lavori e raccontaci il tuo progetto. Prezzi chiari, nessun canone obbligatorio.",
-  applicationName: "/A",
+  applicationName: "PASSO",
   icons: { icon: asset("/favicon.svg") },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ||
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   ),
   alternates: { canonical: "./" },
   openGraph: {
-    title: "/A — Siti web che lavorano per te.",
+    title: "PASSO — Siti web, software e AI.",
     description:
       "Strategia, design e sviluppo per attività e aziende che vogliono crescere online.",
     type: "website",

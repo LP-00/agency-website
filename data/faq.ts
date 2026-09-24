@@ -1,7 +1,7 @@
 export const faq = [
   [
     "Quanto costa un sito?",
-    "Un sito vetrina parte da 1.800 €, un sito web da 4.500 €, un e-commerce da 8.500 € e un gestionale o sistema di prenotazioni da 7.500 €. Il prezzo finale dipende dal progetto e viene definito nella proposta, prima di iniziare.",
+    "Un sito vetrina parte da 1.200 €, un sito web da 4.500 €, un e-commerce da 8.500 € e un software gestionale e prenotazioni da 7.500 €. Web app con AI avanzata e sistemi IoT con AI avanzata partono da 10.000 €. Il prezzo finale dipende dal progetto e viene definito nella proposta, prima di iniziare.",
   ],
   [
     "Devo pagare un canone?",
@@ -13,7 +13,7 @@ export const faq = [
   ],
   [
     "Posso pagare a rate?",
-    "Il pagamento è suddiviso in tre momenti: 30% per iniziare, 20% durante il progetto e 50% a saldo. Possiamo concordare una dilazione del saldo finale. La consegna definitiva avviene a pagamento completato.",
+    "Il pagamento è suddiviso in tre momenti: 30% per iniziare, 20% alla prima revisione e 50% all’approvazione finale. Possiamo concordare una dilazione del saldo finale. La consegna definitiva avviene a pagamento completato.",
   ],
   [
     "Quanto tempo ci vuole?",

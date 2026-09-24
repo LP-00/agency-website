@@ -1,7 +1,7 @@
-# /A — Agency website
+# PASSO — Digital studio
 
-Landing editoriale mobile-first in italiano, basata su `design/reference-mobile.png`.
-**Versione 1.1.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
+Landing editoriale mobile-first in italiano. La v2 evolve la reference iniziale con l'identità PASSO fornita dall'utente, immagini originali e composizioni studiate su Poch.
+**Versione 2.0.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
 
 ## Avvio
 
@@ -31,7 +31,11 @@ L’export statico è in `out/`. Il progetto usa `output: "export"`: per la buil
 - Dialog nativo: focus contenuto, Escape, ripristino del focus, blocco dello scroll e pagina sottostante non interagibile.
 - Accordion FAQ, servizi espandibili, menu mobile e navigazione fra due visual Florame.
 - CSS responsive dedicato, focus visibile e `prefers-reduced-motion`. Nessuna libreria UI o di animazione.
-- Enfasi tipografica senza modifiche alla copy, SVG originali animati, quattro icone 3D dedicate e controlli con feedback di pressione. Sistema documentato in `design/ICON-SYSTEM.md`.
+- PASSO: wordmark e monogramma ricostruiti in SVG, favicon e slogan. Hero con scala architettonica, visual per intent, scelte glass e CTA blu.
+- Sei servizi con illustrazioni 3D trasparenti originali, esempi espandibili e nuovo pricing: 1.200 / 4.500 / 8.500 / 7.500 / 10.000 / 10.000 €.
+- Portfolio con quattro screenshot reali. Gallerie native con swipe, frecce, tastiera, avanzamento automatico e pausa; l'autoplay si ferma fuori viewport, con focus/hover e con movimento ridotto.
+- Blocchi «Parliamone», finestra call e «Inizia un progetto». Il brief scritto nella pagina passa direttamente al contatto nel funnel, con possibilità di tornare indietro.
+- Reveal delle parole, SVG animati, movimenti brevi degli oggetti e contatori dei pagamenti 30/20/50. Nessuna libreria di animazione o WebGL da caricare.
 
 ## Funnel: demo frontend e invio reale
 
@@ -43,20 +47,20 @@ Per attivare un endpoint, impostare `NEXT_PUBLIC_QUOTE_ENDPOINT` prima della bui
 
 Prima dell’attivazione: implementare validazione server, protezione antiabuso e consegna effettiva; inserire identità del titolare, contatti e informativa privacy reali. Nessun segreto va inserito nelle variabili `NEXT_PUBLIC_*`.
 
-## Asset da fornire
+## Asset e personalizzazione
 
-Sostituire i placeholder dichiarati, senza cambiare i percorsi:
+Screenshot reali attualmente utilizzati:
 
 ```text
-public/projects/florame-01.webp
-public/projects/florame-02.webp
-public/projects/1719-01.webp
-public/projects/1719-02.webp
+public/projects/real/florame-01.webp
+public/projects/real/florame-02.webp
+public/projects/real/1719-01.webp
+public/projects/real/1719-02.webp
 ```
 
-Consigliati almeno 1440 × 1080 px, in WebP. Dopo la sostituzione eseguire `npm run assets:responsive` per rigenerare le tre dimensioni del `srcset`. Aggiornare testo alternativo e didascalie in `components/ProjectVisual.tsx` una volta inserite le anteprime vere. Il file `public/projects/ASSETS.md` riepiloga il contratto degli slot.
+Acquisiti il 24 settembre 2026 a 1440 × 1080 px. Dopo una sostituzione eseguire `npm run assets:responsive` per rigenerare il `srcset`. I vecchi placeholder nei percorsi originali non sono più mostrati.
 
-`public/images/workspace.webp` è un’immagine atmosferica originale generata con imagegen, non una fotografia dello studio. Il prompt e le scelte progettuali sono in `design/DESIGN-SYSTEM.md`. Il wordmark `/A` è temporaneo. Non sono presenti social o dati aziendali inventati.
+Gli otto visual originali sono in `public/passo/`: sei illustrazioni di servizio, telefono e hero architettonica. Sono immagini generate, non foto dello studio. Prompt integrali e provenienza: `design/PASSO-ASSETS.md` e `design/passo-assets.json`. Il logo SVG è una ricostruzione della reference; può essere sostituito con il master ufficiale. Restano da fornire recapiti reali, eventuale link per le call e dati per l'invio effettivo del preventivo. Non sono presenti social, volti o disponibilità del team inventati.
 
 ## Struttura
 
@@ -87,7 +91,7 @@ npm run qa:screenshots
 
 Le acquisizioni complete coprono 375 × 812, 390 × 844, 430 × 932, 768 × 1024, 1280 × 800 e 1440 × 900. Ogni acquisizione registra overflow, dimensioni delle sezioni ed errori browser. I test verificano intent, storage, interazioni, form e audit axe WCAG A/AA.
 
-I test includono anche il confronto integrale della copy con la versione approvata per i cinque intent, le preferenze di movimento e il caricamento delle icone 3D. Il report della revisione corrente è in `qa/V1.1-REVIEW.md`. La misurazione Lighthouse della precedente v1.0.0 era **96 Performance / 100 Accessibilità / 100 Best Practices / 100 SEO**; è un dato storico, non una misurazione della revisione corrente.
+I test includono le cinque headline approvate, le preferenze di movimento, il caricamento degli asset, i sei prezzi, i contatori e il passaggio del brief dalla pagina al funnel. Il report della revisione corrente è in `qa/PASSO-V2-REVIEW.md`. Gli screenshot dei tre passaggi sono in `qa/passo-pass1`, `qa/passo-pass2` e `qa/passo-final`. I punteggi Lighthouse delle versioni precedenti non descrivono questa versione.
 
 ## Deploy
 

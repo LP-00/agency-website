@@ -5,6 +5,11 @@ for (const source of [
   "projects/florame-02",
   "projects/1719-01",
   "projects/1719-02",
+  "projects/real/florame-01",
+  "projects/real/florame-02",
+  "projects/real/1719-01",
+  "projects/real/1719-02",
+  "passo/hero",
 ]) {
   for (const width of [480, 768, 1440])
     await sharp(`public/${source}.webp`)

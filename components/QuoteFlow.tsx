@@ -11,15 +11,19 @@ const endpoint = process.env.NEXT_PUBLIC_QUOTE_ENDPOINT;
 export default function QuoteFlow({
   onClose,
   service,
+  draftDescription,
 }: {
   onClose: () => void;
   service?: string;
+  draftDescription?: string;
 }) {
   const { intent, selectIntent } = useAgency();
   const [selected, setSelected] = useState<Intent | null>(intent);
   const initialIntent = useRef(intent);
-  const [step, setStep] = useState(intent ? 2 : 1);
-  const [description, setDescription] = useState("");
+  const [step, setStep] = useState(
+    draftDescription && intent ? 3 : intent ? 2 : 1,
+  );
+  const [description, setDescription] = useState(draftDescription || "");
   const [hasSite, setHasSite] = useState(false);
   const [url, setUrl] = useState("");
   const [contact, setContact] = useState({
@@ -101,14 +105,12 @@ export default function QuoteFlow({
     onClose();
     window.setTimeout(
       () =>
-        document
-          .getElementById("lavori")
-          ?.scrollIntoView({
-            behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
-              .matches
-              ? "instant"
-              : "smooth",
-          }),
+        document.getElementById("lavori")?.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+            .matches
+            ? "instant"
+            : "smooth",
+        }),
       0,
     );
   }

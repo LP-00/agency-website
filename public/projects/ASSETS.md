@@ -1,3 +1,3 @@
-# Asset da sostituire
+# Asset portfolio
 
-I quattro WebP sono placeholder dichiarati, non screenshot dei progetti. Sostituirli con immagini reali mantenendo i nomi e, idealmente, una dimensione di 1440 × 1080 px o superiore. I ritagli editoriali sono definiti in CSS. Aggiornare alt e didascalie in components/ProjectVisual.tsx quando si inseriscono gli asset reali.
+La v2 usa screenshot reali nella sottocartella `real/`, acquisiti il 24 settembre 2026. Provenienza e percorsi in `design/PASSO-ASSETS.md`. I quattro file storici nella cartella principale sono i placeholder della v1 e non vengono mostrati. Per sostituire le immagini correnti usare 1440 × 1080 px e rigenerare il srcset con `npm run assets:responsive`.

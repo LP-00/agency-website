@@ -1,0 +1,344 @@
+[
+  {
+    "width": 375,
+    "height": 812,
+    "overflow": {
+      "viewport": 375,
+      "document": 375,
+      "offenders": [
+        "SPAN.service-art ",
+        "IMG."
+      ]
+    },
+    "errors": [],
+    "sections": [
+      {
+        "id": "inizio",
+        "height": 1111
+      },
+      {
+        "id": "lavori",
+        "height": 1476
+      },
+      {
+        "id": "approccio",
+        "height": 1126
+      },
+      {
+        "id": "servizi",
+        "height": 969
+      },
+      {
+        "id": "parliamone",
+        "height": 744
+      },
+      {
+        "id": "section case-study",
+        "height": 919
+      },
+      {
+        "id": "section process",
+        "height": 1154
+      },
+      {
+        "id": "prezzi",
+        "height": 1091
+      },
+      {
+        "id": "section payment passo-payment",
+        "height": 1088
+      },
+      {
+        "id": "faq",
+        "height": 919
+      },
+      {
+        "id": "preventivo",
+        "height": 1912
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "overflow": {
+      "viewport": 390,
+      "document": 390,
+      "offenders": []
+    },
+    "errors": [],
+    "sections": [
+      {
+        "id": "inizio",
+        "height": 1117
+      },
+      {
+        "id": "lavori",
+        "height": 1496
+      },
+      {
+        "id": "approccio",
+        "height": 1107
+      },
+      {
+        "id": "servizi",
+        "height": 973
+      },
+      {
+        "id": "parliamone",
+        "height": 756
+      },
+      {
+        "id": "section case-study",
+        "height": 934
+      },
+      {
+        "id": "section process",
+        "height": 1159
+      },
+      {
+        "id": "prezzi",
+        "height": 1095
+      },
+      {
+        "id": "section payment passo-payment",
+        "height": 1065
+      },
+      {
+        "id": "faq",
+        "height": 925
+      },
+      {
+        "id": "preventivo",
+        "height": 1919
+      }
+    ]
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "overflow": {
+      "viewport": 430,
+      "document": 430,
+      "offenders": [
+        "SPAN.service-art ",
+        "IMG."
+      ]
+    },
+    "errors": [],
+    "sections": [
+      {
+        "id": "inizio",
+        "height": 1132
+      },
+      {
+        "id": "lavori",
+        "height": 1551
+      },
+      {
+        "id": "approccio",
+        "height": 1107
+      },
+      {
+        "id": "servizi",
+        "height": 973
+      },
+      {
+        "id": "parliamone",
+        "height": 801
+      },
+      {
+        "id": "section case-study",
+        "height": 936
+      },
+      {
+        "id": "section process",
+        "height": 1159
+      },
+      {
+        "id": "prezzi",
+        "height": 1095
+      },
+      {
+        "id": "section payment passo-payment",
+        "height": 1065
+      },
+      {
+        "id": "faq",
+        "height": 925
+      },
+      {
+        "id": "preventivo",
+        "height": 1938
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "overflow": {
+      "viewport": 768,
+      "document": 768,
+      "offenders": []
+    },
+    "errors": [],
+    "sections": [
+      {
+        "id": "inizio",
+        "height": 888
+      },
+      {
+        "id": "lavori",
+        "height": 2036
+      },
+      {
+        "id": "approccio",
+        "height": 934
+      },
+      {
+        "id": "servizi",
+        "height": 1009
+      },
+      {
+        "id": "parliamone",
+        "height": 487
+      },
+      {
+        "id": "section case-study",
+        "height": 1217
+      },
+      {
+        "id": "section process",
+        "height": 1246
+      },
+      {
+        "id": "prezzi",
+        "height": 1147
+      },
+      {
+        "id": "section payment passo-payment",
+        "height": 770
+      },
+      {
+        "id": "faq",
+        "height": 955
+      },
+      {
+        "id": "preventivo",
+        "height": 1895
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "overflow": {
+      "viewport": 1280,
+      "document": 1280,
+      "offenders": []
+    },
+    "errors": [],
+    "sections": [
+      {
+        "id": "inizio",
+        "height": 917
+      },
+      {
+        "id": "lavori",
+        "height": 2660
+      },
+      {
+        "id": "approccio",
+        "height": 1050
+      },
+      {
+        "id": "servizi",
+        "height": 1585
+      },
+      {
+        "id": "parliamone",
+        "height": 697
+      },
+      {
+        "id": "section case-study",
+        "height": 1356
+      },
+      {
+        "id": "section process",
+        "height": 986
+      },
+      {
+        "id": "prezzi",
+        "height": 1928
+      },
+      {
+        "id": "section payment passo-payment",
+        "height": 910
+      },
+      {
+        "id": "faq",
+        "height": 811
+      },
+      {
+        "id": "preventivo",
+        "height": 2087
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "overflow": {
+      "viewport": 1440,
+      "document": 1440,
+      "offenders": []
+    },
+    "errors": [],
+    "sections": [
+      {
+        "id": "inizio",
+        "height": 946
+      },
+      {
+        "id": "lavori",
+        "height": 2792
+      },
+      {
+        "id": "approccio",
+        "height": 1050
+      },
+      {
+        "id": "servizi",
+        "height": 1598
+      },
+      {
+        "id": "parliamone",
+        "height": 700
+      },
+      {
+        "id": "section case-study",
+        "height": 1435
+      },
+      {
+        "id": "section process",
+        "height": 986
+      },
+      {
+        "id": "prezzi",
+        "height": 1940
+      },
+      {
+        "id": "section payment passo-payment",
+        "height": 938
+      },
+      {
+        "id": "faq",
+        "height": 811
+      },
+      {
+        "id": "preventivo",
+        "height": 2102
+      }
+    ]
+  }
+]
