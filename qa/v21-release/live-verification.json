@@ -1,0 +1,19 @@
+{
+  "manifest": {
+    "version": "2.1.0",
+    "sourceCommit": "5e45ee19b72aa8cd94c8a62fbb7e8b1832a1428f",
+    "builtAt": "2026-09-24T15:20:07.593Z"
+  },
+  "results": [
+    {
+      "viewport": 390,
+      "document": 390
+    },
+    {
+      "viewport": 1440,
+      "document": 1440
+    }
+  ],
+  "errors": [],
+  "checkedAt": "2026-09-24T15:20:56.538Z"
+}

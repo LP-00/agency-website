@@ -32,3 +32,8 @@ Nessun nuovo benchmark Lighthouse: non si attribuiscono punteggi di performance 
 ## Limite preesistente
 
 Il funnel resta una demo frontend esplicita finché non viene configurato un endpoint di invio reale. L'immagine hub è la landing pubblica di `hub.florame.ai`, non una schermata amministrativa autenticata.
+
+## Pubblicazione verificata
+
+GitHub Pages: versione **2.1.0**, sorgente `5e45ee19b72aa8cd94c8a62fbb7e8b1832a1428f`, commit di pubblicazione `679d15b5cea753d0ce6b0ef1f360a95f7ef36737`.
+Controllo sul sito pubblico: tutte le immagini decodificate, quattro slide Florame, assenza dei controlli galleria, intent IoT e AI nel funnel, zero errori browser e nessun overflow a 390 e 1440 px. Evidenze in `qa/v21-release/live-verification.json`.
