@@ -23,10 +23,7 @@ export function StartProject() {
       <fieldset>
         <legend>Da dove partiamo?</legend>
         <div className="start-options">
-          {[
-            ...services.map((s) => ({ id: s.id, label: s.shortTitle })),
-            { id: "", label: "Non so ancora" },
-          ].map((s) => (
+          {services.map((s) => (
             <label
               className={`start-choice ${selected === s.id ? "selected" : ""}`}
               key={s.id}
@@ -39,7 +36,7 @@ export function StartProject() {
                 onChange={() => setSelected(s.id)}
               />
               <Icon name={selected === s.id ? "check" : "plus"} />
-              <span>{s.label}</span>
+              <span>{s.shortTitle}</span>
             </label>
           ))}
         </div>

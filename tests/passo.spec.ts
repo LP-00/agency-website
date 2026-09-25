@@ -34,6 +34,38 @@ test("conversation phone stays beside the introduction without covering its CTA"
   }
 });
 
+test("intermediate hero keeps every intent image beside the copy and omits decorative labels", async ({ page }) => {
+  test.setTimeout(90000);
+  for (const width of [600, 640, 700, 767]) {
+    await page.setViewportSize({ width, height: 1024 });
+    for (const intent of ["site", "ecommerce", "booking", "ai-app", "iot", "other"]) {
+      await page.goto(`./?intent=${intent}`);
+      await expect(page.locator(".hero")).toHaveAttribute("data-intent", intent);
+      const layout = await page.evaluate(() => {
+        const title = document.querySelector(".hero-copy h1")!.getBoundingClientRect();
+        const art = document.querySelector(".hero-art")!.getBoundingClientRect();
+        const description = document.querySelector(".hero-description")!.getBoundingClientRect();
+        return {
+          artLeft: art.left,
+          artCenter: art.top + art.height / 2,
+          titleLeft: title.left,
+          titleTop: title.top,
+          titleBottom: title.bottom,
+          descriptionBottom: description.bottom,
+          documentWidth: document.documentElement.scrollWidth,
+        };
+      });
+      expect(layout.artLeft, `${width}px ${intent}`).toBeGreaterThan(layout.titleLeft + 220);
+      expect(layout.artCenter, `${width}px ${intent}`).toBeGreaterThan(layout.titleTop);
+      expect(layout.artCenter, `${width}px ${intent}`).toBeLessThan(layout.descriptionBottom);
+      expect(layout.documentWidth, `${width}px ${intent}`).toBe(width);
+      await expect(page.locator(".hero-art-caption, .hero-mobile-caption, .hero-art-orbit")).toHaveCount(0);
+    }
+  }
+  await expect(page.locator("#form .start-choice")).toHaveCount(7);
+  await expect(page.getByText("Non so ancora", { exact: true })).toHaveCount(0);
+});
+
 test("mobile hero fits the first viewport for every service intent", async ({
   page,
 }) => {
@@ -87,7 +119,7 @@ test("service visuals stay descriptive and the large PASSO mark follows the call
     "src",
     /ai-app-v6\.webp$/,
   );
-  await expect(page.locator(".hero-mobile-caption")).toBeVisible();
+  await expect(page.locator(".hero-art-caption, .hero-mobile-caption, .hero-art-orbit")).toHaveCount(0);
   const selector = await page.locator(".intent-hero .intent-option").first().evaluate((el) => {
     const icon = el.querySelector(".intent-glyph")!;
     return {

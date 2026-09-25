@@ -123,24 +123,6 @@
   filter: drop-shadow(0 20px 24px #0005);
   animation: object-arrive 1.1s var(--ease-out) both;
 }
-.hero-art-orbit {
-  position: absolute;
-  width: 240px;
-  height: 86px;
-  border: 1px solid #ffffff22;
-  bottom: 30px;
-  border-radius: 50%;
-  transform: rotate(-12deg);
-  z-index: -1;
-}
-.hero-art-caption {
-  position: absolute;
-  bottom: 0;
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: #cbc9c0;
-}
 .passo-hero .hero-conversion {
   margin-top: 34px;
   max-width: none;
@@ -1256,16 +1238,6 @@
     max-width: 670px;
     flex-shrink: 0;
   }
-  .hero-art-orbit {
-    width: 360px;
-    height: 130px;
-    bottom: 65px;
-  }
-  .hero-art-caption {
-    bottom: 15px;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-  }
   .passo-hero .hero-conversion {
     grid-column: 1;
     grid-row: 2;
@@ -1780,15 +1752,6 @@
     width: 115%;
     height: auto;
   }
-  .hero-art-caption {
-    font-size: 8px;
-    bottom: 0;
-    text-align: center;
-  }
-  .hero-art-orbit {
-    width: 240px;
-    bottom: 30px;
-  }
   .passo-hero .hero-conversion {
     grid-column: 1/-1;
     grid-row: 2;
@@ -2019,17 +1982,6 @@
     height: 154px;
     flex: none;
   }
-  .hero-art-orbit {
-    display: none;
-  }
-  .hero-art-caption {
-    right: 2px;
-    bottom: -8px;
-    max-width: 140px;
-    text-align: right;
-    font-size: 8px;
-    line-height: 1.3;
-  }
   .passo-hero .hero-conversion {
     margin-top: 24px;
   }
@@ -2064,9 +2016,6 @@
   }
 }
 /* PASSO 2.3: stronger intent imagery and a legible two-column mobile selector. */
-.hero-mobile-caption {
-  display: none;
-}
 @media (max-width: 599px) {
   .passo-hero .hero-layout {
     padding-top: 28px;
@@ -2135,29 +2084,6 @@
   .passo-hero[data-intent="iot"] .hero-art {
     top: 0;
   }
-  .hero-art-caption {
-    right: 0;
-    bottom: -4px;
-    max-width: 175px;
-    white-space: normal;
-    text-align: right;
-    font-size: 8px;
-    line-height: 1.2;
-  }
-  .passo-hero:is([data-intent="ai-app"], [data-intent="booking"])
-    .hero-art-caption {
-    display: none;
-  }
-  .passo-hero:is([data-intent="ai-app"], [data-intent="booking"])
-    .hero-mobile-caption {
-    display: block;
-    margin-top: 7px;
-    font-size: 9px;
-    line-height: 1.35;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #cbc9c0;
-  }
   .hero-signoff {
     padding-top: 14px;
     padding-bottom: 18px;
@@ -2225,5 +2151,55 @@
   }
   .call-art-caption {
     display: none;
+  }
+}
+/* Intermediate screens keep the hero visual beside the message, as on phones. */
+@media (min-width: 600px) and (max-width: 767px) {
+  .passo-hero .hero-layout {
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+  .passo-hero .hero-copy {
+    position: relative;
+    z-index: 1;
+  }
+  .passo-hero .hero-copy h1 {
+    font-size: clamp(56px, 9vw, 65px);
+    min-height: 0;
+    text-shadow: 0 2px 12px #080909a8;
+  }
+  .passo-hero[data-intent="booking"] h1 {
+    font-size: clamp(50px, 8vw, 60px);
+  }
+  .passo-hero .hero-description {
+    max-width: min(62%, 430px);
+    min-height: 0;
+  }
+  .hero-art {
+    position: absolute;
+    z-index: 0;
+    top: 58px;
+    right: -10px;
+    width: clamp(270px, 48vw, 360px);
+    height: clamp(270px, 48vw, 360px);
+    opacity: 1;
+  }
+  .hero-art > .service-art {
+    width: 100%;
+    height: 100%;
+    flex: none;
+    -webkit-mask-image: linear-gradient(90deg, #0007, #000c 32%, #000 70%);
+    mask-image: linear-gradient(90deg, #0007, #000c 32%, #000 70%);
+  }
+  .passo-hero:is([data-intent="ecommerce"], [data-intent="booking"])
+    .hero-art > .service-art {
+    -webkit-mask-image: linear-gradient(90deg, #0000 0%, #0002 22%, #000c 55%, #000 75%);
+    mask-image: linear-gradient(90deg, #0000 0%, #0002 22%, #000c 55%, #000 75%);
+  }
+  .passo-hero .hero-conversion {
+    position: relative;
+    z-index: 1;
+    margin-top: 32px;
   }
 }
