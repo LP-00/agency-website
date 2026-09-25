@@ -1,7 +1,7 @@
 # PASSO — Digital studio
 
 Landing editoriale mobile-first in italiano, con identità PASSO, immagini originali e composizioni responsive.
-**Versione 2.3.2** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
+**Versione 2.3.3** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
 
 ## Avvio
 

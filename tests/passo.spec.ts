@@ -1,5 +1,34 @@
 import { test, expect } from "@playwright/test";
 
+test("hero subjects share a consistent visible top across intents", async ({ page }) => {
+  test.setTimeout(90000);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const alphaTop = { site: 100, ecommerce: 57, booking: 91, "ai-app": 24, iot: 81, other: 35 } as const;
+  for (const [width, height] of [[390, 844], [700, 960], [768, 1024], [1440, 900]]) {
+    await page.setViewportSize({ width, height });
+    const visibleTops: Record<string, number> = {};
+    for (const intent of Object.keys(alphaTop) as Array<keyof typeof alphaTop>) {
+      await page.goto(`./?intent=${intent}`);
+      await expect(page.locator(".hero")).toHaveAttribute("data-intent", intent);
+      const image = page.locator(".hero-art img");
+      await expect(image).toBeVisible();
+      const rect = await image.evaluate(async (element: HTMLImageElement) => {
+        await element.decode();
+        const { y, height } = element.getBoundingClientRect();
+        return { y, height };
+      });
+      visibleTops[intent] = rect.y + rect.height * alphaTop[intent] / 640;
+    }
+    const reference = [visibleTops.site, visibleTops.ecommerce, visibleTops.booking];
+    const min = Math.min(...reference) - 5;
+    const max = Math.max(...reference) + 6;
+    for (const intent of ["ai-app", "iot", "other"]) {
+      expect(visibleTops[intent], `${width}px ${intent}`).toBeGreaterThanOrEqual(min);
+      expect(visibleTops[intent], `${width}px ${intent}`).toBeLessThanOrEqual(max);
+    }
+  }
+});
+
 test("conversation phone stays beside the introduction without covering its CTA", async ({ page }) => {
   for (const [width, height] of [[375, 812], [390, 844], [430, 932], [600, 960], [767, 1024], [768, 1024], [1440, 900]]) {
     await page.setViewportSize({ width, height });

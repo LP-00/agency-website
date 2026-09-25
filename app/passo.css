@@ -2203,3 +2203,39 @@
     margin-top: 32px;
   }
 }
+/* Align the visible object, accounting for each transparent asset's padding. */
+.passo-hero .hero-art > .service-art {
+  top: var(--hero-art-shift, 0px);
+}
+.passo-hero[data-intent="ai-app"] {
+  --hero-art-shift: 45px;
+}
+.passo-hero[data-intent="iot"] {
+  --hero-art-shift: 10px;
+}
+.passo-hero[data-intent="other"] {
+  --hero-art-shift: 45px;
+}
+@media (max-width: 1023px) {
+  .passo-hero[data-intent="ai-app"] {
+    --hero-art-shift: 32px;
+  }
+  .passo-hero[data-intent="other"] {
+    --hero-art-shift: 27px;
+  }
+}
+@media (max-width: 599px) {
+  .passo-hero[data-intent="ai-app"] {
+    --hero-art-shift: 35px;
+  }
+  .passo-hero[data-intent="ai-app"] .hero-art > .service-art {
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 60%, #0000 83%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 60%, #0000 83%);
+  }
+  .passo-hero[data-intent="iot"] {
+    --hero-art-shift: 24px;
+  }
+  .passo-hero[data-intent="other"] {
+    --hero-art-shift: 20px;
+  }
+}
