@@ -1,5 +1,39 @@
 import { test, expect } from "@playwright/test";
 
+test("conversation phone stays beside the introduction without covering its CTA", async ({ page }) => {
+  for (const [width, height] of [[375, 812], [390, 844], [430, 932], [600, 960], [767, 1024], [768, 1024], [1440, 900]]) {
+    await page.setViewportSize({ width, height });
+    await page.goto("./#parliamone");
+    const layout = await page.evaluate(() => {
+      const box = (selector: string) => document.querySelector(selector)!.getBoundingClientRect();
+      const eyebrow = box(".call-us .eyebrow");
+      const title = box(".call-us h2");
+      const subtitle = box(".call-us-copy > p:not(.eyebrow)");
+      const art = box(".call-sculpture");
+      const button = box(".call-us .button");
+      return {
+        eyebrowTop: eyebrow.top,
+        titleCenter: title.left + title.width * 0.45,
+        subtitleBottom: subtitle.bottom,
+        artLeft: art.left,
+        artCenterY: art.top + art.height / 2,
+        artBottom: art.bottom,
+        buttonLeft: button.left,
+        buttonRight: button.right,
+        buttonTop: button.top,
+        documentWidth: document.documentElement.scrollWidth,
+      };
+    });
+    expect(layout.documentWidth, `${width}px`).toBe(width);
+    expect(layout.artLeft, `${width}px`).toBeGreaterThan(layout.titleCenter);
+    expect(layout.artCenterY, `${width}px`).toBeGreaterThan(layout.eyebrowTop);
+    expect(layout.artCenterY, `${width}px`).toBeLessThan(layout.subtitleBottom);
+    if (width < 768) {
+      expect(layout.artLeft >= layout.buttonRight || layout.artBottom <= layout.buttonTop + 8, `${width}px CTA`).toBe(true);
+    }
+  }
+});
+
 test("mobile hero fits the first viewport for every service intent", async ({
   page,
 }) => {

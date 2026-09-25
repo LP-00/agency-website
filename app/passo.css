@@ -2189,3 +2189,41 @@
 .call-backdrop .passo-brand {
   font-size: clamp(90px, 23vw, 300px);
 }
+/* Keep the conversation visual beside its introduction on narrow screens. */
+@media (max-width: 767px) {
+  .call-us {
+    padding-bottom: 72px;
+  }
+  .call-us-grid {
+    display: block;
+    position: relative;
+  }
+  .call-us-copy {
+    position: relative;
+    z-index: 1;
+  }
+  .call-us-copy > p:not(.eyebrow) {
+    max-width: min(58%, 350px);
+  }
+  .call-us-copy > .button {
+    position: relative;
+    z-index: 2;
+  }
+  .call-sculpture {
+    position: absolute;
+    z-index: 0;
+    top: 8px;
+    right: -18px;
+    width: clamp(198px, 52vw, 300px);
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .call-sculpture > .service-art {
+    -webkit-mask-image: linear-gradient(90deg, #0000, #0005 34%, #000e 58%, #000 72%);
+    mask-image: linear-gradient(90deg, #0000, #0005 34%, #000e 58%, #000 72%);
+  }
+  .call-art-caption {
+    display: none;
+  }
+}
