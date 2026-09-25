@@ -49,6 +49,7 @@ export function Hero() {
             <p className="hero-description">
               <RichText text={copy.description} />
             </p>
+            <span className="hero-mobile-caption">{copy.caption}</span>
           </div>
           <div className="hero-art" aria-hidden="true">
             <span className="hero-art-orbit" />

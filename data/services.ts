@@ -57,7 +57,7 @@ export const services: Service[] = [
     timing: "Circa 6–10 settimane",
     intent: "ecommerce",
     symbol: "shop",
-    image: "commerce",
+    image: "commerce-v6",
     description:
       "Un’esperienza di acquisto curata, con prodotti, pagamenti e ordini che lavorano insieme.",
     examples: [
@@ -93,7 +93,7 @@ export const services: Service[] = [
     timing: "Tempistiche su progetto",
     intent: "ai-app",
     symbol: "pages",
-    image: "ai-app-v4",
+    image: "ai-app-v6",
     description:
       "Applicazioni su misura che integrano l’intelligenza artificiale nei processi, nei contenuti e nei servizi della tua azienda.",
     examples: [
@@ -111,7 +111,7 @@ export const services: Service[] = [
     timing: "Tempistiche su progetto",
     intent: "iot",
     symbol: "site",
-    image: "iot",
+    image: "iot-v6",
     description:
       "Colleghiamo dispositivi, sensori e software per leggere ciò che succede nel mondo reale e trasformarlo in azioni utili.",
     examples: [
@@ -129,7 +129,7 @@ export const services: Service[] = [
     timing: "Da definire insieme",
     intent: "other",
     symbol: "pages",
-    image: "other-v5",
+    image: "other-v6",
     description:
       "Strumenti e prodotti digitali costruiti intorno a esigenze che non rientrano in una categoria predefinita.",
     examples: [

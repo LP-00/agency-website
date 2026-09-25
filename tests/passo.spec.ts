@@ -44,6 +44,46 @@ test("mobile hero fits the first viewport for every service intent", async ({
   }
 });
 
+test("service visuals stay descriptive and the large PASSO mark follows the call card", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("./?intent=ai-app");
+  await expect(page.locator('.hero[data-intent="ai-app"] .hero-art img')).toHaveAttribute(
+    "src",
+    /ai-app-v6\.webp$/,
+  );
+  await expect(page.locator(".hero-mobile-caption")).toBeVisible();
+  const selector = await page.locator(".intent-hero .intent-option").first().evaluate((el) => {
+    const icon = el.querySelector(".intent-glyph")!;
+    return {
+      fontSize: parseFloat(getComputedStyle(el).fontSize),
+      iconWidth: icon.getBoundingClientRect().width,
+    };
+  });
+  expect(selector.fontSize).toBeGreaterThanOrEqual(13);
+  expect(selector.iconWidth).toBeGreaterThanOrEqual(19);
+  for (const [index, image] of [
+    [2, "commerce-v6"],
+    [4, "ai-app-v6"],
+    [5, "iot-v6"],
+    [6, "other-v6"],
+  ] as const) {
+    await expect(page.locator(".service-poster .service-art img").nth(index)).toHaveAttribute(
+      "src",
+      new RegExp(`${image}\\.webp$`),
+    );
+  }
+  for (const width of [375, 1440]) {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
+    const positions = await page.evaluate(() => ({
+      cardBottom: document.querySelector(".call-window")!.getBoundingClientRect().bottom,
+      markTop: document.querySelector(".call-backdrop")!.getBoundingClientRect().top,
+    }));
+    expect(positions.markTop).toBeGreaterThan(positions.cardBottom);
+  }
+});
+
 test("project starter validates and carries service and brief into the contact step", async ({
   page,
 }) => {

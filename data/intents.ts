@@ -11,7 +11,7 @@ export const intents = [
   },
   {
     id: "ecommerce",
-    visual: "commerce",
+    visual: "commerce-v6",
     caption: "Dal catalogo al carrello, senza attriti.",
     label: "E-commerce",
     longLabel: "Un e-commerce",
@@ -33,7 +33,7 @@ export const intents = [
     id: "ai-app",
     label: "Web app AI",
     longLabel: "Web app con AI avanzata",
-    visual: "ai-app-v4",
+    visual: "ai-app-v6",
     caption: "La tua conoscenza, pronta a rispondere.",
     headline: ["La tua app.", "L’AI, al tuo", "servizio."],
     description:
@@ -43,7 +43,7 @@ export const intents = [
     id: "iot",
     label: "IoT + AI",
     longLabel: "Sistemi IoT con AI avanzata",
-    visual: "iot",
+    visual: "iot-v6",
     caption: "Ogni segnale diventa un’azione utile.",
     headline: ["Dispositivi.", "Connessi e", "intelligenti."],
     description:
@@ -51,7 +51,7 @@ export const intents = [
   },
   {
     id: "other",
-    visual: "other-v5",
+    visual: "other-v6",
     caption: "Diamo forma anche alle idee fuori schema.",
     label: "Altro",
     longLabel: "Altro",

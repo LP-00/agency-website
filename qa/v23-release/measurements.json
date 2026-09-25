@@ -1,0 +1,215 @@
+[
+  {
+    "width": 375,
+    "height": 812,
+    "intent": "site",
+    "heroBottom": 762,
+    "captionBottom": 266,
+    "descriptionTop": 273,
+    "documentWidth": 375
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "intent": "ecommerce",
+    "heroBottom": 806,
+    "captionBottom": 283,
+    "descriptionTop": 317,
+    "documentWidth": 375
+  },
+  {
+    "width": 375,
+    "call": {
+      "card": {
+        "top": 205,
+        "bottom": 510,
+        "width": 339
+      },
+      "mark": {
+        "top": 541,
+        "bottom": 666,
+        "width": 347
+      },
+      "stage": {
+        "top": 121,
+        "bottom": 717,
+        "width": 375
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "intent": "site",
+    "heroBottom": 768,
+    "captionBottom": 273,
+    "descriptionTop": 279,
+    "documentWidth": 390
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "intent": "ecommerce",
+    "heroBottom": 813,
+    "captionBottom": 290,
+    "descriptionTop": 324,
+    "documentWidth": 390
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "intent": "booking",
+    "heroBottom": 807,
+    "captionBottom": 0,
+    "descriptionTop": 298,
+    "documentWidth": 390
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "intent": "ai-app",
+    "heroBottom": 787,
+    "captionBottom": 0,
+    "descriptionTop": 279,
+    "documentWidth": 390
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "intent": "iot",
+    "heroBottom": 748,
+    "captionBottom": 255,
+    "descriptionTop": 260,
+    "documentWidth": 390
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "intent": "other",
+    "heroBottom": 768,
+    "captionBottom": 273,
+    "descriptionTop": 279,
+    "documentWidth": 390
+  },
+  {
+    "width": 390,
+    "call": {
+      "card": {
+        "top": 6037,
+        "bottom": 6342,
+        "width": 350
+      },
+      "mark": {
+        "top": 6372,
+        "bottom": 6498,
+        "width": 357
+      },
+      "stage": {
+        "top": 5953,
+        "bottom": 6549,
+        "width": 390
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "intent": "site",
+    "heroBottom": 778,
+    "captionBottom": 292,
+    "descriptionTop": 289,
+    "documentWidth": 430
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "intent": "booking",
+    "heroBottom": 779,
+    "captionBottom": 0,
+    "descriptionTop": 271,
+    "documentWidth": 430
+  },
+  {
+    "width": 430,
+    "call": {
+      "card": {
+        "top": 260,
+        "bottom": 565,
+        "width": 390
+      },
+      "mark": {
+        "top": 593,
+        "bottom": 732,
+        "width": 398
+      },
+      "stage": {
+        "top": 176,
+        "bottom": 781,
+        "width": 430
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "intent": "site",
+    "heroBottom": 888,
+    "captionBottom": 474,
+    "descriptionTop": 350,
+    "documentWidth": 768
+  },
+  {
+    "width": 768,
+    "call": {
+      "card": {
+        "top": 297,
+        "bottom": 536,
+        "width": 680
+      },
+      "mark": {
+        "top": 553,
+        "bottom": 803,
+        "width": 719
+      },
+      "stage": {
+        "top": 213,
+        "bottom": 835,
+        "width": 768
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "intent": "site",
+    "heroBottom": 946,
+    "captionBottom": 739,
+    "descriptionTop": 484,
+    "documentWidth": 1440
+  },
+  {
+    "width": 1440,
+    "call": {
+      "card": {
+        "top": 127,
+        "bottom": 415,
+        "width": 740
+      },
+      "mark": {
+        "top": 442,
+        "bottom": 881,
+        "width": 1368
+      },
+      "stage": {
+        "top": -2,
+        "bottom": 928,
+        "width": 1440
+      }
+    },
+    "errors": []
+  }
+]
