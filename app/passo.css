@@ -2064,12 +2064,6 @@
   .hero-art > .service-art {
     width: 100%;
     height: 100%;
-    -webkit-mask-image: linear-gradient(90deg, #0009, #000 45%);
-    mask-image: linear-gradient(90deg, #0009, #000 45%);
-  }
-  .passo-hero[data-intent="booking"] .hero-art > .service-art {
-    -webkit-mask-image: linear-gradient(90deg, #0006, #000 60%);
-    mask-image: linear-gradient(90deg, #0006, #000 60%);
   }
   .passo-hero[data-intent="booking"] h1 {
     text-shadow: 0 1px 7px #000, 0 0 12px #000;
@@ -2189,13 +2183,6 @@
     width: 100%;
     height: 100%;
     flex: none;
-    -webkit-mask-image: linear-gradient(90deg, #0007, #000c 32%, #000 70%);
-    mask-image: linear-gradient(90deg, #0007, #000c 32%, #000 70%);
-  }
-  .passo-hero:is([data-intent="ecommerce"], [data-intent="booking"])
-    .hero-art > .service-art {
-    -webkit-mask-image: linear-gradient(90deg, #0000 0%, #0002 22%, #000c 55%, #000 75%);
-    mask-image: linear-gradient(90deg, #0000 0%, #0002 22%, #000c 55%, #000 75%);
   }
   .passo-hero .hero-conversion {
     position: relative;
@@ -2227,10 +2214,6 @@
 @media (max-width: 599px) {
   .passo-hero[data-intent="ai-app"] {
     --hero-art-shift: 35px;
-  }
-  .passo-hero[data-intent="ai-app"] .hero-art > .service-art {
-    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 60%, #0000 83%);
-    mask-image: linear-gradient(180deg, #000 0%, #000 60%, #0000 83%);
   }
   .passo-hero[data-intent="iot"] {
     --hero-art-shift: 24px;
