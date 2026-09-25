@@ -1,5 +1,4 @@
 "use client";
-import { useRef } from "react";
 import { ServiceArt } from "./ServiceArt";
 import { RichText } from "./RichText";
 import Image from "next/image";
@@ -9,12 +8,9 @@ import { useAgency } from "./AgencyProvider";
 import { IntentSelector } from "./IntentSelector";
 import { QuoteButton } from "./QuoteButton";
 import { Header } from "./Header";
-import { useHeroOverlapMask } from "./useHeroOverlapMask";
 export function Hero() {
   const { intent, selectIntent } = useAgency();
   const copy = intents.find((item) => item.id === intent) || intents[0];
-  const layoutRef = useRef<HTMLDivElement>(null);
-  useHeroOverlapMask(layoutRef, intent);
   return (
     <section
       className="hero dark passo-hero"
@@ -34,7 +30,7 @@ export function Hero() {
       </div>
       <div className="container hero-inner">
         <Header />
-        <div className="hero-layout" ref={layoutRef}>
+        <div className="hero-layout">
           <div className="hero-copy" aria-live="polite" aria-atomic="true">
             <p className="eyebrow hero-eyebrow">Strategia. Design. Sviluppo.</p>
             <h1 id="hero-heading">

@@ -1,7 +1,7 @@
 # PASSO — Digital studio
 
 Landing editoriale mobile-first in italiano, con identità PASSO, immagini originali e composizioni responsive.
-**Versione 2.3.4** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
+**Versione 2.3.5** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
 
 ## Avvio
 
@@ -31,7 +31,6 @@ L’export statico è in `out/`. Il progetto usa `output: "export"`: per la buil
 - Dialog nativo: focus contenuto, Escape, ripristino del focus, blocco dello scroll e pagina sottostante non interagibile.
 - Accordion FAQ, servizi espandibili, menu mobile e gallerie Florame e 17/19.
 - CSS responsive dedicato, focus visibile e `prefers-reduced-motion`. Nessuna libreria UI o di animazione.
-- La hero attenua il visual soltanto dietro alle parole che lo coprono davvero; se testo e immagine non si sovrappongono, il visual resta integro.
 - PASSO: wordmark e monogramma ricostruiti in SVG, favicon e slogan. Hero con scala architettonica, visual per intent, scelte glass e CTA blu.
 - Sette servizi con illustrazioni 3D trasparenti originali ed esempi espandibili. «Tanto altro» è su misura e non ha un prezzo inventato; il pricing mostra le sei offerte definite: 1.200 / 4.500 / 8.500 / 7.500 / 10.000 / 10.000 €.
 - Portfolio con sei screenshot reali: Florame include sito, hub, pagina fiorista e AI. Gallerie portfolio senza frecce, contatori o pausa; swipe, trascinamento con il mouse e tastiera restano disponibili. Progetti, servizi e prezzi scorrono automaticamente quando visibili: dopo un’interazione manuale si fermano per 10 secondi, poi ripartono. Nessun movimento automatico con `prefers-reduced-motion`. Loghi ufficiali in trasparenza senza modificare il layout dei testi.

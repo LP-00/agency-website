@@ -1,38 +1,20 @@
 import { test, expect } from "@playwright/test";
 
-test("AI hero fades only the phone pixels beneath text", async ({ page }) => {
+test("hero artwork remains unmasked at every viewport", async ({ page }) => {
+  test.setTimeout(90000);
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("./?intent=ai-app");
-  await expect(page.locator(".hero")).toHaveAttribute("data-intent", "ai-app");
-  const art = page.locator(".hero-art > .service-art");
-  await expect.poll(async () => Number(await art.getAttribute("data-overlap-mask-words"))).toBeGreaterThan(0);
-  const mask = await art.evaluate(async (element) => {
-    const css = (element as HTMLElement).style.maskImage;
-    const src = css.slice(5, -2);
-    const image = new Image();
-    image.src = src;
-    await image.decode();
-    const canvas = document.createElement("canvas");
-    canvas.width = image.width;
-    canvas.height = image.height;
-    const ctx = canvas.getContext("2d")!;
-    ctx.drawImage(image, 0, 0);
-    const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    let faded = 0;
-    for (let i = 3; i < data.length; i += 4) if (data[i] < 240) faded++;
-    const alpha = (x: number, y: number) => data[(Math.floor(y * canvas.height) * canvas.width + Math.floor(x * canvas.width)) * 4 + 3];
-    return { fadedFraction: faded / (canvas.width * canvas.height), top: alpha(0.5, 0.15), outsideText: alpha(0.95, 0.95) };
-  });
-  expect(mask.fadedFraction).toBeGreaterThan(0.005);
-  expect(mask.fadedFraction).toBeLessThan(0.25);
-  expect(mask.top).toBe(255);
-  expect(mask.outsideText).toBe(255);
-
-  for (const width of [700, 768, 1440]) {
-    await page.setViewportSize({ width, height: 900 });
-    await expect.poll(async () => Number(await art.getAttribute("data-overlap-mask-words"))).toBe(0);
-    await expect(art).toHaveCSS("mask-image", "none");
+  for (const width of [375, 390, 430, 700, 768, 1280, 1440]) {
+    await page.setViewportSize({ width, height: width < 600 ? 844 : 900 });
+    for (const intent of width === 390
+      ? ["site", "ecommerce", "booking", "ai-app", "iot", "other"]
+      : ["ai-app"]) {
+      await page.goto(`./?intent=${intent}`);
+      await expect(page.locator(".hero")).toHaveAttribute("data-intent", intent);
+      const art = page.locator(".hero-art > .service-art");
+      await expect(art).toHaveCSS("mask-image", "none");
+      await expect(art).toHaveCSS("-webkit-mask-image", "none");
+      await expect(art).not.toHaveAttribute("data-overlap-mask-words", /./);
+    }
   }
 });
 
