@@ -1,3 +1,3 @@
-:HL["/agency-website/_next/static/chunks/2sryotzwknklw.css","style"]
+:HL["/agency-website/_next/static/chunks/1og8wbahhl1zk.css","style"]
 :HL["/agency-website/_next/static/media/manrope_latin_variable-s.p.1p_a2k8qd5zhp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"VjTKB1f_JL9-D6e4wz1hm"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"ev_IjSjipDvzoXdNKMlOI"}
