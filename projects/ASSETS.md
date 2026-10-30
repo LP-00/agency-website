@@ -1,3 +1,7 @@
 # Asset portfolio
 
-La v2 usa screenshot reali nella sottocartella `real/`, acquisiti il 24 settembre 2026. Provenienza e percorsi in `design/PASSO-ASSETS.md`. I quattro file storici nella cartella principale sono i placeholder della v1 e non vengono mostrati. Per sostituire le immagini correnti usare 1440 × 1080 px e rigenerare il srcset con `npm run assets:responsive`.
+La v2.4 usa sei screenshot reali nella sottocartella `mobile/`, acquisiti il 30 ottobre 2026 con viewport 390 × 844 px e DPR 2 (780 × 1688 px). Sono immagini senza cornici aggiunte e senza modifiche all'interfaccia dei progetti.
+
+Fonti: florame.ai, hub.florame.ai/demo (demo pubblica del gestionale), florame.ai/pages/fiori-nino, florame.ai/pages/florame-ai-landing e 1719urbanbistrot.it (home e menu). Lo script `scripts/capture-mobile-projects.mjs` genera i file principali e le varianti responsive 480, 768 e 1440; le immagini non vengono ingrandite oltre la cattura originale.
+
+Gli screenshot desktop storici in `real/` e i placeholder v1 non sono più mostrati.
