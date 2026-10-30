@@ -1,7 +1,7 @@
 # PASSO — Digital studio
 
 Landing editoriale mobile-first in italiano, con identità PASSO, immagini originali e composizioni responsive.
-**Versione 2.3.6** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
+**Versione 2.4.0** · Next.js App Router · React · TypeScript · Tailwind CSS 4.
 
 ## Avvio
 
@@ -52,15 +52,15 @@ Prima dell’attivazione: implementare validazione server, protezione antiabuso 
 Screenshot reali attualmente utilizzati:
 
 ```text
-public/projects/real/florame-01.webp
-public/projects/real/florame-02.webp
-public/projects/real/florame-hub.webp
-public/projects/real/florame-fiorista.webp
-public/projects/real/1719-01.webp
-public/projects/real/1719-02.webp
+public/projects/mobile/florame-01.webp
+public/projects/mobile/florame-02.webp
+public/projects/mobile/florame-hub.webp
+public/projects/mobile/florame-fiorista.webp
+public/projects/mobile/1719-01.webp
+public/projects/mobile/1719-02.webp
 ```
 
-Acquisiti il 24 settembre 2026 a 1440 × 1080 px. Dopo una sostituzione eseguire `npm run assets:responsive` per rigenerare il `srcset`. I vecchi placeholder nei percorsi originali non sono più mostrati.
+Acquisiti il 30 ottobre 2026 con viewport mobile 390 × 844 px, DPR 2, senza cornici aggiunte. `node scripts/capture-mobile-projects.mjs` acquisisce nuovamente le pagine pubbliche e genera i WebP responsive; `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` permette di indicare il browser locale. L'hub usa la demo pubblica. I vecchi screenshot desktop e placeholder non sono più mostrati. I loghi decorativi sono centrati sul blocco numero e nome. Le rail consentono lo scorrimento orizzontale; i gesti verticali scorrono la pagina anche sopra servizi e prezzi.
 
 I visual attivi sono in `public/passo/`: sette illustrazioni di servizio, il telefono e la hero architettonica. Sono immagini generate, non foto dello studio. La v2.3 sostituisce i visual di e-commerce, web app AI, IoT e Tanto altro con immagini che mostrano la funzione reale di ciascun servizio; prompt e fonti sono in `design/PASSO-V2.3-ASSETS.md`. La hero mobile mantiene le immagini accanto al titolo, le ingrandisce, sfuma leggermente il bordo sotto al testo e dispone il selettore in due colonne con testi e simboli più leggibili. Il wordmark decorativo della call appare sotto la card. La v2.2.1 ha introdotto la composizione affiancata della hero; la v2.2 ha aggiunto `landing-v4.webp` e `software-v4.webp`, con prompt e fonti in `design/PASSO-V2.2-ASSETS.json`. La sezione Focus è confluita nella descrizione di florame.ai. La v2.1 ha introdotto il telefono e la sequenza SVG lampadina → schizzo → pronto; le fonti sono in `design/PASSO-V2.1-ASSETS.json`. Prompt integrali e provenienza precedenti: `design/PASSO-ASSETS.md` e `design/passo-assets.json`. Il logo SVG è una ricostruzione della reference; può essere sostituito con il master ufficiale. Restano da fornire recapiti reali, eventuale link per le call e dati per l'invio effettivo del preventivo. Non sono presenti social, volti o disponibilità del team inventati.
 

@@ -21,9 +21,9 @@ export function Services() {
           eyebrow="Cosa possiamo realizzare"
           id="services-heading"
         >
-          <WordReveal text="Il prossimo passo" />
+          <WordReveal text="Possiamo realizzare" />
           <br />
-          <em>del tuo business.</em>
+          <em>tutto!</em>
         </SectionHeading>
         <HorizontalRail
           label="Servizi"

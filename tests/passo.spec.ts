@@ -48,9 +48,12 @@ test("hero subjects share a consistent visible top across intents", async ({ pag
 });
 
 test("conversation phone stays beside the introduction without covering its CTA", async ({ page }) => {
+  // Measure the settled layout rather than the call artwork's entrance animation.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   for (const [width, height] of [[375, 812], [390, 844], [430, 932], [600, 960], [767, 1024], [768, 1024], [1440, 900]]) {
     await page.setViewportSize({ width, height });
     await page.goto("./#parliamone");
+    await page.evaluate(() => document.fonts.ready);
     const layout = await page.evaluate(() => {
       const box = (selector: string) => document.querySelector(selector)!.getBoundingClientRect();
       const eyebrow = box(".call-us .eyebrow");

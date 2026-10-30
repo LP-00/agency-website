@@ -15,15 +15,11 @@ export function ProjectVisual({
     <figure className={`project-visual ${className}`}>
       <Image
         src={asset(src)}
-        alt={`Schermata del sito ${name}, ${label}`}
-        width={1440}
-        height={1080}
-        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 80vw, 65vw"
+        alt={`Vista mobile di ${name}, ${label}`}
+        width={780}
+        height={1688}
+        sizes="(max-width: 599px) 72vw, (max-width: 1023px) 36vw, 320px"
       />
-      <figcaption>
-        <span>{name}</span>
-        <span>{label}</span>
-      </figcaption>
     </figure>
   );
 }

@@ -46,6 +46,9 @@ export function IntentSelector({
               <Icon name="check" />
             </span>
             <span>{variant === "hero" ? item.label : item.longLabel}</span>
+            {variant === "hero" && (
+              <Icon name="arrow" className="intent-choice-arrow" />
+            )}
           </label>
         ))}
       </div>

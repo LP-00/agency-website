@@ -24,25 +24,27 @@ export function SelectedWork() {
           {projects.map((project) => (
             <article className="project" key={project.name}>
               <div className="project-copy">
-                <Image
-                  className="project-watermark"
-                  src={asset(project.logo)}
-                  alt=""
-                  aria-hidden="true"
-                  width={240}
-                  height={160}
-                  unoptimized
-                />
-                <span className="project-index" aria-hidden="true">
-                  /{project.number}
-                </span>
-                <h3>
-                  <a href={project.url} target="_blank" rel="noreferrer">
-                    {project.name}
-                    <Icon name="external" />
-                    <span className="sr-only"> (nuova scheda)</span>
-                  </a>
-                </h3>
+                <div className="project-heading">
+                  <Image
+                    className="project-watermark"
+                    src={asset(project.logo)}
+                    alt=""
+                    aria-hidden="true"
+                    width={240}
+                    height={160}
+                    unoptimized
+                  />
+                  <span className="project-index" aria-hidden="true">
+                    /{project.number}
+                  </span>
+                  <h3>
+                    <a href={project.url} target="_blank" rel="noreferrer">
+                      {project.name}
+                      <Icon name="external" />
+                      <span className="sr-only"> (nuova scheda)</span>
+                    </a>
+                  </h3>
+                </div>
                 <p>
                   <RichText text={project.description} />
                 </p>

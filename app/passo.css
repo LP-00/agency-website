@@ -129,20 +129,25 @@
   width: 100%;
 }
 .passo-hero .intent-selector legend {
-  font-size: 14px;
-  margin-bottom: 15px;
+  font-size: clamp(18px, 2.1vw, 21px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: var(--cream);
+  margin-bottom: 16px;
 }
 .passo-hero .intent-options {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
 .passo-hero .intent-option {
-  background: var(--glass);
-  color: var(--light);
-  border: 1px solid #ffffff38;
+  background: linear-gradient(160deg, #ffffff25, #ffffff12);
+  color: #fff;
+  border: 1px solid #ffffff75;
   box-shadow:
-    inset 0 1px 0 #ffffff18,
-    0 3px 8px #0002;
+    inset 0 1px 0 #ffffff30,
+    0 2px 0 #0006,
+    0 4px 10px #0003;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-radius: 12px;
@@ -150,6 +155,36 @@
   padding: 14px;
   font-size: 13px;
   gap: 9px;
+}
+.passo-hero .intent-option > span:last-of-type {
+  font-weight: 600;
+}
+.passo-hero .intent-choice-arrow {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 13px;
+  margin-left: auto;
+  opacity: 0.7;
+  stroke-width: 1.7;
+  transition: transform 160ms var(--ease-out);
+}
+.passo-hero .intent-option.selected .intent-choice-arrow {
+  opacity: 0;
+}
+@media (hover: hover) {
+  .passo-hero .intent-option:hover:not(.selected) {
+    background: #ffffff30;
+    border-color: #ffffffb0;
+    box-shadow: inset 0 1px 0 #ffffff45, 0 3px 0 #0006, 0 6px 14px #0003;
+    transform: translateY(-1px);
+  }
+  .passo-hero .intent-option:hover .intent-choice-arrow {
+    transform: translateX(2px);
+  }
+}
+.passo-hero .intent-option:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 4px #0004;
 }
 .passo-hero .intent-option:last-child {
   grid-column: 1/-1;
@@ -234,7 +269,10 @@
   display: flex;
   gap: 14px;
   overflow-x: auto;
+  overflow-y: hidden;
   overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+  touch-action: pan-x pan-y pinch-zoom;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   position: relative;
@@ -327,26 +365,26 @@
   margin-right: 20px;
 }
 .project-gallery .project-slide {
-  flex-basis: 92%;
+  flex-basis: 72%;
   display: block;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #e7e3da;
+  border-radius: 0;
+  background: transparent;
 }
 .project-gallery .project-visual {
   margin: 0;
-  padding: 14px 14px 0;
+  padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
 }
 .project-gallery .project-visual img {
-  aspect-ratio: 4/3;
-  object-fit: cover;
+  aspect-ratio: 390/844;
+  object-fit: contain;
+  display: block;
   height: auto;
   max-height: none;
-  border-radius: 6px;
-  border: 1px solid #00000012;
+  border-radius: 0;
+  border: 0;
 }
 .project-visual figcaption {
   color: #555650;
@@ -358,7 +396,7 @@
   display: block;
 }
 .project-gallery .project-slide:nth-child(2) {
-  background: #dedbd3;
+  background: transparent;
 }
 .focus-visual .project-visual {
   background: #e7e3da;
@@ -998,11 +1036,6 @@
     color: #fff;
     transform: translateX(2px);
   }
-  .passo-hero .intent-option:hover:not(.selected) {
-    background: #ffffff20;
-    transform: translateY(-2px);
-    border-color: #ffffff75;
-  }
   .service-poster:hover > .service-art img {
     transform: translateY(-6px) rotate(-2deg);
   }
@@ -1285,13 +1318,13 @@
     grid-column: 2;
   }
   .project-gallery .project-slide {
-    flex-basis: 83%;
+    flex-basis: 320px;
   }
   .project-gallery .project-visual {
-    padding: 28px 28px 0;
+    padding: 0;
   }
   .project-gallery .project-visual img {
-    border-radius: 10px;
+    border-radius: 0;
   }
   .project-visual figcaption {
     font-size: 11px;
@@ -1778,7 +1811,7 @@
   right: 8px;
   top: 50%;
   width: clamp(100px, 22vw, 180px);
-  height: 80%;
+  height: 110%;
   max-height: 150px;
   object-fit: contain;
   transform: translateY(-50%) rotate(-12deg);
@@ -1786,6 +1819,24 @@
   filter: grayscale(1);
   pointer-events: none;
   z-index: -1;
+}
+.passo-work .project-heading {
+  position: relative;
+  isolation: isolate;
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .project-gallery .project-slide {
+    flex-basis: 36%;
+  }
+}
+@media (min-width: 1024px) {
+  .passo-work .project-heading {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+  .passo-work .project-copy p {
+    margin-top: 39px;
+  }
 }
 .focus-gallery .focus-visual {
   margin: 0;
@@ -1915,6 +1966,7 @@
   .grid-on-desktop .rail-track {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     gap: 24px;
     align-items: stretch;
     padding: 4px 0 6px;

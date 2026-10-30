@@ -8,22 +8,22 @@ export const projects = [
     logo: "/projects/logos/florame.webp",
     images: [
       {
-        src: "/projects/real/florame-01.webp",
+        src: "/projects/mobile/florame-01.webp",
         label: "E-commerce",
         url: "https://florame.ai",
       },
       {
-        src: "/projects/real/florame-hub.webp",
+        src: "/projects/mobile/florame-hub.webp",
         label: "Hub fioristi",
-        url: "https://hub.florame.ai/",
+        url: "https://hub.florame.ai/demo",
       },
       {
-        src: "/projects/real/florame-fiorista.webp",
+        src: "/projects/mobile/florame-fiorista.webp",
         label: "Pagina del fiorista",
         url: "https://florame.ai/pages/fiori-nino",
       },
       {
-        src: "/projects/real/florame-02.webp",
+        src: "/projects/mobile/florame-02.webp",
         label: "Florame AI",
         url: "https://florame.ai/pages/florame-ai-landing",
       },
@@ -38,12 +38,12 @@ export const projects = [
     logo: "/projects/logos/1719.svg",
     images: [
       {
-        src: "/projects/real/1719-01.webp",
+        src: "/projects/mobile/1719-01.webp",
         label: "Il bistrot",
         url: "https://1719urbanbistrot.it/",
       },
       {
-        src: "/projects/real/1719-02.webp",
+        src: "/projects/mobile/1719-02.webp",
         label: "Menu e prenotazioni",
         url: "https://1719urbanbistrot.it/",
       },
